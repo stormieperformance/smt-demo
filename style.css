@@ -3,6 +3,7 @@ body {
   background: #0a0a0a;
   color: white;
   font-family: Arial, sans-serif;
+  overflow-x: hidden; /* 👈 lägg denna här */
 }
 
 /* HERO */
