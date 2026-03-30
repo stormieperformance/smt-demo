@@ -17,10 +17,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.05);
   z-index: 0;
 }
 
@@ -29,7 +29,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.55);
   z-index: 1;
 }
 
@@ -37,44 +37,58 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 96px 64px;
+  padding: 120px 80px;
   max-width: 900px;
 }
 
-/* TYPO */
+/* TYPOGRAPHY */
 h1 {
-  font-size: 112px;
-  line-height: 0.88;
-  margin: 0 0 28px 0;
-  letter-spacing: -0.04em;
+  font-size: 96px;
+  line-height: 0.9;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.03em;
 }
 
 .hero p {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.4;
-  max-width: 720px;
-  margin: 0 0 28px 0;
+  max-width: 600px;
+  margin: 0 0 24px 0;
+  opacity: 0.9;
 }
 
-/* BUTTON */
+/* BUTTON GROUP */
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
 .btn {
   display: inline-block;
-  padding: 14px 24px;
+  padding: 14px 22px;
   background: white;
   color: black;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.6);
 }
 
 /* NEWS */
 .news-section {
-  padding: 80px 64px 96px;
+  padding: 80px 64px;
 }
 
 .news-section h2 {
-  font-size: 64px;
-  line-height: 0.95;
-  margin: 0 0 28px 0;
+  font-size: 56px;
+  margin-bottom: 32px;
 }
 
 #news {
@@ -84,87 +98,47 @@ h1 {
 }
 
 #news h3 {
-  font-size: 36px;
-  margin: 0 0 12px 0;
+  font-size: 28px;
 }
 
 #news p {
-  font-size: 20px;
-  line-height: 1.5;
-  margin: 0;
-  max-width: 760px;
+  font-size: 18px;
+  max-width: 600px;
 }
 
 #news img {
-  display: block;
   width: 100%;
-  max-width: 760px;
-  height: auto;
-  margin-top: 18px;
+  max-width: 600px;
+  margin-top: 16px;
 }
 
-/* COACHES */
-.coaches {
-  padding: 80px 64px;
-}
+/* ================= MOBILE ================= */
 
-.coaches h2 {
-  font-size: 64px;
-  margin: 0 0 40px 0;
-}
-
-.coaches-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.coach-card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  margin-bottom: 16px;
-}
-
-.coach-card h3 {
-  font-size: 28px;
-  margin: 0 0 8px 0;
-}
-
-.coach-card p {
-  font-size: 18px;
-  margin: 0;
-  opacity: 0.7;
-}
-
-/* MOBILE */
 @media (max-width: 900px) {
-  /* HERO */
-  .hero {
-    height: 100vh;
-  }
 
   .hero-content {
     position: absolute;
-    top: 80px;
+    top: 100px;
     left: 20px;
     right: 20px;
     padding: 0;
-    max-width: none;
   }
 
   h1 {
     font-size: 52px;
     line-height: 0.95;
-    margin: 0 0 14px 0;
-    letter-spacing: -0.02em;
+    margin-bottom: 16px;
   }
 
   .hero p {
     font-size: 16px;
-    line-height: 1.4;
-    max-width: 100%;
-    margin: 0 0 16px 0;
+    margin-bottom: 18px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .btn {
@@ -172,59 +146,19 @@ h1 {
     padding: 10px 14px;
   }
 
-  /* NEWS */
   .news-section {
-    padding: 40px 20px 60px;
+    padding: 40px 20px;
   }
 
   .news-section h2 {
     font-size: 32px;
-    margin: 0 0 20px 0;
-  }
-
-  #news {
-    gap: 24px;
   }
 
   #news h3 {
     font-size: 20px;
-    margin: 0 0 10px 0;
   }
 
   #news p {
-    font-size: 14px;
-    max-width: 100%;
-  }
-
-  #news img {
-    max-width: 100%;
-    margin-top: 14px;
-  }
-
-  /* COACHES */
-  .coaches {
-    padding: 40px 20px 60px;
-  }
-
-  .coaches h2 {
-    font-size: 32px;
-    margin: 0 0 24px 0;
-  }
-
-  .coaches-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .coach-card img {
-    height: 260px;
-  }
-
-  .coach-card h3 {
-    font-size: 22px;
-  }
-
-  .coach-card p {
     font-size: 14px;
   }
 }
