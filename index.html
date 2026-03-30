@@ -1,29 +1,25 @@
-const SUPABASE_URL = "https://lhxbzhjymxseucmmodmi.supabase.co";
-const SUPABASE_KEY = "PASTE_DIN_PUBLISHABLE_KEY_HÄR";
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stockholm Muay Thai</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  <section class="hero">
+    <h1>STOCKHOLM<br>MUAY THAI</h1>
+    <p>Träna Muay Thai i Stockholm. Alla nivåer välkomna.</p>
+    <a href="#" class="btn">Boka pass</a>
+  </section>
 
-async function loadNews() {
-  const { data, error } = await supabase
-    .from('news')
-    .select('*')
-    .eq('active', true)
-    .order('created_at', { ascending: false });
+  <section class="news-section">
+    <h2>Nyheter</h2>
+    <div id="news"></div>
+  </section>
 
-  const container = document.getElementById("news");
-  container.innerHTML = "";
-
-  data.forEach(item => {
-    const div = document.createElement("div");
-
-    div.innerHTML = `
-      <h3>${item.title}</h3>
-      <p>${item.content}</p>
-      ${item.image_url ? `<img src="${item.image_url}" style="width:100%;margin-top:10px;">` : ""}
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-loadNews();
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
