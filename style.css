@@ -208,20 +208,29 @@ h1 {
   }
 
   .news-section {
-    padding: 40px 20px;
-  }
+  padding: 40px 20px;
+}
 
-  .news-section h2 {
-    font-size: 32px;
-  }
+.news-section h2 {
+  font-size: 32px;
+}
 
-  #news h3 {
-    font-size: 20px;
-  }
+.news-grid {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
 
-  #news p {
-    font-size: 14px;
-  }
+.news-card img {
+  height: 220px;
+}
+
+.news-content h3 {
+  font-size: 20px;
+}
+
+.news-content p {
+  font-size: 14px;
+}
   .coaches {
     padding: 40px 20px 60px;
   }
