@@ -93,28 +93,45 @@ h1 {
 
 .news-section h2 {
   font-size: 56px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
-#news {
-  display: flex;
-  flex-direction: column;
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
-#news h3 {
-  font-size: 28px;
+.news-card {
+  overflow: hidden;
 }
 
-#news p {
-  font-size: 18px;
-  max-width: 600px;
-}
-
-#news img {
+.news-card img {
   width: 100%;
-  max-width: 600px;
-  margin-top: 16px;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-content {
+  padding-top: 16px;
+}
+
+.news-content h3 {
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+.news-content p {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.tag {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
 }
 
 .coaches {
