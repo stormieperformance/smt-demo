@@ -1,3 +1,4 @@
+alert("app.js körs");
 const SUPABASE_URL = "https://lhxbzhjymxseucmmodmi.supabase.co";
 const SUPABASE_KEY = "sb_publishable__Bs8LsdEtlwHzzAxXkfVYQ_hHptrnE1";
 
