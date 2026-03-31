@@ -171,13 +171,6 @@ h1 {
   display: block;
 }
 
-.start-image img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-}
-
 .start-image {
   position: relative;
   overflow: hidden;
