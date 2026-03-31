@@ -357,6 +357,7 @@ h1 {
   background: rgba(255,255,255,0.05);
 }
 
+
 .shop-preview {
   padding: 100px 64px;
 }
@@ -368,8 +369,8 @@ h1 {
 
 .shop-header {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 40px;
 }
 
@@ -377,36 +378,65 @@ h1 {
   font-size: 48px;
 }
 
+.shop-sub {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
 .shop-link {
   font-size: 14px;
-  opacity: 0.6;
   text-decoration: none;
   color: white;
+  opacity: 0.7;
 }
 
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 32px;
 }
 
+/* CARD */
 .shop-card {
   cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
-.shop-card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 8px;
+.shop-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE */
+.shop-image {
   background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
 }
 
-.shop-card h3 {
-  margin-top: 12px;
-  font-size: 18px;
-  font-weight: 500;
+.shop-image img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
+
+.shop-card:hover img {
+  transform: scale(1.04);
+}
+
+/* INFO */
+.shop-info h3 {
+  font-size: 18px;
+  margin: 0 0 6px 0;
+}
+
+.price {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
 
 /* NEWS */
 .news-section {
