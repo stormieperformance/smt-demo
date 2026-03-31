@@ -854,11 +854,20 @@ h1 {
   }
 
   .shop-preview {
-  padding: 60px 20px;
+    padding: 60px 20px;
   }
 
   .shop-grid {
-  grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .shop-image img {
+    height: 260px;
+  }
+
+  .shop-header h2 {
+    font-size: 28px;
   }
   
   .news-section {
