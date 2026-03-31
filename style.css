@@ -259,60 +259,6 @@ h1 {
   mix-blend-mode: screen;
 }
 
-@keyframes imageFlicker {
-  0%, 100% {
-    transform: translate(0, 0);
-    filter: brightness(0.92) contrast(1.05);
-  }
-  6% {
-    transform: translate(-1px, 0);
-  }
-  7% {
-    transform: translate(2px, 0);
-  }
-  8% {
-    transform: translate(0, 0);
-  }
-  28% {
-    transform: translate(0, 0);
-    filter: brightness(0.88) contrast(1.08);
-  }
-  29% {
-    transform: translate(-3px, 1px);
-  }
-  30% {
-    transform: translate(3px, -1px);
-  }
-  31% {
-    transform: translate(0, 0);
-  }
-  58% {
-    transform: translate(0, 0);
-  }
-  59% {
-    transform: translate(-2px, 0);
-  }
-  60% {
-    transform: translate(2px, 0);
-  }
-  61% {
-    transform: translate(0, 0);
-    filter: brightness(1) contrast(1.12);
-  }
-  82% {
-    transform: translate(0, 0);
-  }
-  83% {
-    transform: translate(1px, -1px);
-  }
-  84% {
-    transform: translate(-1px, 1px);
-  }
-  85% {
-    transform: translate(0, 0);
-  }
-}
-
 @keyframes tvGlitch {
   0%, 100% {
     opacity: 0;
