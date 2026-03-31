@@ -641,12 +641,20 @@ h1 {
 
   .memberships {
   padding: 60px 20px;
-}
+  }
 
   .memberships-grid {
   grid-template-columns: 1fr;
-}
+  }
 
+  .shop-preview {
+  padding: 60px 20px;
+  }
+
+  .shop-grid {
+  grid-template-columns: 1fr;
+  }
+  
   .news-section {
     padding: 40px 20px;
   }
