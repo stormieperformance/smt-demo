@@ -909,4 +909,17 @@ h1 {
   .map-placeholder {
   height: 260px;
   }
+
+  .footer {
+  padding: 40px 20px 20px;
+  }
+
+  .footer-container {
+  flex-direction: column;
+  gap: 32px;
+  }
+
+  .footer-right {
+  gap: 40px;
+  }
 }
