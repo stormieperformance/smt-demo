@@ -829,4 +829,21 @@ h1 {
   .social-grid {
   grid-template-columns: repeat(2, 1fr);
   }
+
+  .contact-location {
+  padding: 60px 20px;
+  }
+
+  .contact-location-container {
+  grid-template-columns: 1fr;
+  gap: 28px;
+  }
+
+  .contact-location-text h2 {
+  font-size: 28px;
+  }
+
+  .map-placeholder {
+  height: 260px;
+  }
 }
