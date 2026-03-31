@@ -164,32 +164,58 @@ h1 {
   gap: 16px;
 }
 
+.start-image {
+  position: relative;
+  overflow: hidden;
+}
+
 .start-image img {
   width: 100%;
   height: 500px;
   object-fit: cover;
   display: block;
-}
-
-.start-image {
-  position: relative;
-  overflow: hidden;
+  animation: gymFlicker 2.8s infinite;
 }
 
 .start-image::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.06);
-  opacity: 0;
-  animation: startPulse 4s ease-in-out infinite;
+  background: rgba(255,255,255,0.08);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: lightFlash 2.8s infinite;
 }
 
-@keyframes startPulse {
-  0% { opacity: 0; }
-  50% { opacity: 0.12; }
-  100% { opacity: 0; }
+@keyframes gymFlicker {
+  0%, 100% { filter: brightness(0.82) contrast(1.05); }
+  8% { filter: brightness(0.92) contrast(1.08); }
+  10% { filter: brightness(0.78) contrast(1.03); }
+  14% { filter: brightness(1.00) contrast(1.1); }
+  18% { filter: brightness(0.84) contrast(1.05); }
+  32% { filter: brightness(0.88) contrast(1.06); }
+  34% { filter: brightness(1.04) contrast(1.12); }
+  36% { filter: brightness(0.80) contrast(1.04); }
+  62% { filter: brightness(0.90) contrast(1.07); }
+  64% { filter: brightness(1.06) contrast(1.12); }
+  66% { filter: brightness(0.83) contrast(1.05); }
 }
+
+@keyframes lightFlash {
+  0%, 100% { opacity: 0.04; }
+  8% { opacity: 0.08; }
+  10% { opacity: 0.02; }
+  14% { opacity: 0.14; }
+  18% { opacity: 0.05; }
+  32% { opacity: 0.07; }
+  34% { opacity: 0.16; }
+  36% { opacity: 0.03; }
+  62% { opacity: 0.08; }
+  64% { opacity: 0.18; }
+  66% { opacity: 0.04; }
+}
+
+
 
 .coaches {
   padding: 80px 64px;
