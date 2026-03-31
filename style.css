@@ -80,13 +80,23 @@ h1 {
   font-weight: 500;
   letter-spacing: 0.06em;
   white-space: nowrap;
-  border-radius: 0;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 .btn-secondary {
   background: transparent;
   color: white;
   border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
 }
 
 /* NEWS */
@@ -138,12 +148,13 @@ h1 {
   padding: 100px 64px;
 }
 
-/* 🔥 NY DESKTOP FIX */
 .start-container {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .start-text {
@@ -153,28 +164,30 @@ h1 {
 .start-text h2 {
   font-size: 64px;
   margin-bottom: 20px;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   line-height: 0.95;
   font-weight: 600;
 }
 
 .start-text .sub {
-  font-size: 24px;
-  opacity: 0.72;
-  margin-bottom: 28px;
+  font-size: 18px;
+  opacity: 0.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
 }
 
 .start-text p {
-  font-size: 18px;
-  opacity: 0.72;
-  margin-bottom: 18px;
-  line-height: 1.75;
+  font-size: 17px;
+  opacity: 0.75;
+  margin-bottom: 16px;
+  line-height: 1.7;
+  max-width: 480px;
 }
 
 .start-buttons {
-  margin-top: 32px;
+  margin-top: 24px;
   display: flex;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -183,15 +196,27 @@ h1 {
   overflow: hidden;
 }
 
-/* 🔥 JUSTERAD BANNER POSITION */
+.start-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.5)
+  );
+  border-radius: 4px;
+  pointer-events: none;
+}
+
 .start-banner-marquee {
   position: absolute;
   left: -8%;
   bottom: 56px;
   width: 116%;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(6px);
-  color: #000;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  color: rgba(0,0,0,0.85);
   transform: rotate(-4deg);
   overflow: hidden;
   z-index: 3;
@@ -226,13 +251,12 @@ h1 {
   100% { transform: translateX(-50%); }
 }
 
-/* 🔥 STÖRRE BILD */
 .start-image img {
   width: 100%;
-  height: 620px;
+  height: 520px;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 /* COACHES */
@@ -346,12 +370,21 @@ h1 {
     gap: 32px;
   }
 
+  .start-text {
+    max-width: 100%;
+  }
+
   .start-text h2 {
     font-size: 32px;
   }
 
+  .start-text .sub {
+    font-size: 18px;
+  }
+
   .start-text p {
     font-size: 15px;
+    max-width: 100%;
   }
 
   .start-buttons {
@@ -361,6 +394,10 @@ h1 {
 
   .start-image img {
     height: 300px;
+  }
+
+  .start-image::after {
+    border-radius: 4px;
   }
 
   .start-banner-marquee {
