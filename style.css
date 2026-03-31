@@ -228,44 +228,38 @@ h1 {
   left: -5%;
   bottom: 60px;
   width: 110%;
-
-  /* MÖRK istället för vit */
   background: rgba(10,10,10,0.55);
-
-  /* subtil blur (glass, men dark) */
   backdrop-filter: blur(10px);
-
+  -webkit-backdrop-filter: blur(10px);
   color: rgba(255,255,255,0.75);
-
   transform: rotate(-3deg);
   overflow: hidden;
   z-index: 3;
-
   padding: 12px 0;
   white-space: nowrap;
-
-  /* tunn, premium border */
   border-top: 1px solid rgba(255,255,255,0.08);
   border-bottom: 1px solid rgba(255,255,255,0.08);
-
-  /* mindre glow */
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.start-banner-track {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: startMarquee 14s linear infinite;
 }
 
 .start-banner-track span {
   display: inline-block;
   white-space: nowrap;
-
   font-size: 18px;
   font-weight: 500;
-
   letter-spacing: 0.12em;
   text-transform: uppercase;
-
   padding-right: 80px;
   flex-shrink: 0;
-
-  /* lite softare text */
   opacity: 0.8;
 }
 
@@ -448,17 +442,16 @@ h1 {
     bottom: 34px;
     width: 122%;
     transform: translateX(-50%) rotate(-4deg);
-    padding: 8px 0;
-
+    padding: 6px 0;
     background: rgba(10,10,10,0.5);
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 14px 36px rgba(0,0,0,0.4);
   }
 
   .start-banner-track span {
-    font-size: 11px;
-    padding-right: 64px;
-    letter-spacing: 0.08em;
+    font-size: 10px;
+    padding-right: 48px;
+    letter-spacing: 0.06em;
   }
 
   .coaches {
