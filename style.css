@@ -135,7 +135,6 @@ h1 {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  object-position: center;
   display: block;
   border-radius: 6px;
 }
