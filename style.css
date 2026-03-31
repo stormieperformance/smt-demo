@@ -301,10 +301,10 @@ h1 {
 .coach-card img {
   display: block;
   width: 100%;
-  max-width: 100%;
-  height: 320px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
+  background: #000;
 }
 
 .coach-card h3 {
