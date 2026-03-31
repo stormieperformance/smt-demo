@@ -48,14 +48,15 @@ h1 {
   line-height: 0.9;
   margin: 0 0 24px 0;
   letter-spacing: -0.03em;
+  font-weight: 500;
 }
 
 .hero p {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.4;
   max-width: 600px;
   margin: 0 0 24px 0;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 /* BUTTON GROUP */
@@ -71,19 +72,21 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 20px;
+  padding: 12px 18px;
   background: white;
   color: black;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
+  letter-spacing: 0.06em;
   white-space: nowrap;
+  border-radius: 0;
 }
 
 .btn-secondary {
   background: transparent;
   color: white;
-  border: 1px solid rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 /* NEWS */
@@ -111,6 +114,7 @@ h1 {
   height: 260px;
   object-fit: cover;
   display: block;
+  border-radius: 4px;
 }
 
 .news-content {
@@ -118,13 +122,14 @@ h1 {
 }
 
 .news-content h3 {
-  font-size: 24px;
+  font-size: 22px;
   margin: 8px 0;
+  font-weight: 500;
 }
 
 .news-content p {
-  font-size: 16px;
-  opacity: 0.7;
+  font-size: 15px;
+  opacity: 0.6;
 }
 
 /* START TRAINING */
@@ -141,19 +146,21 @@ h1 {
 }
 
 .start-text h2 {
-  font-size: 56px;
+  font-size: 48px;
   margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  font-weight: 500;
 }
 
 .start-text .sub {
-  font-size: 20px;
-  opacity: 0.7;
+  font-size: 18px;
+  opacity: 0.5;
   margin-bottom: 24px;
 }
 
 .start-text p {
-  font-size: 18px;
-  opacity: 0.8;
+  font-size: 16px;
+  opacity: 0.65;
   margin-bottom: 16px;
   line-height: 1.6;
 }
@@ -198,8 +205,8 @@ h1 {
 .start-banner-track span {
   display: inline-block;
   white-space: nowrap;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding-right: 80px;
@@ -216,6 +223,7 @@ h1 {
   height: 500px;
   object-fit: cover;
   display: block;
+  border-radius: 6px;
 }
 
 /* COACHES */
@@ -225,8 +233,9 @@ h1 {
 }
 
 .coaches h2 {
-  font-size: 56px;
+  font-size: 48px;
   margin-bottom: 32px;
+  font-weight: 500;
 }
 
 .coaches-grid {
@@ -245,17 +254,19 @@ h1 {
   max-width: 100%;
   height: 320px;
   object-fit: cover;
+  border-radius: 6px;
 }
 
 .coach-card h3 {
-  font-size: 24px;
+  font-size: 22px;
   margin: 16px 0 8px 0;
+  font-weight: 500;
 }
 
 .coach-card p {
-  font-size: 16px;
+  font-size: 14px;
   margin: 0;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 /* ================= MOBILE ================= */
@@ -271,13 +282,13 @@ h1 {
   }
 
   h1 {
-    font-size: 52px;
+    font-size: 48px;
     line-height: 0.95;
     margin-bottom: 16px;
   }
 
   .hero p {
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 18px;
   }
 
@@ -288,7 +299,7 @@ h1 {
   }
 
   .btn {
-    font-size: 14px;
+    font-size: 13px;
     padding: 10px 14px;
   }
 
@@ -297,7 +308,7 @@ h1 {
   }
 
   .news-section h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .news-grid {
@@ -310,11 +321,11 @@ h1 {
   }
 
   .news-content h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .news-content p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .start-training {
@@ -327,11 +338,11 @@ h1 {
   }
 
   .start-text h2 {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   .start-text p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .start-buttons {
@@ -362,7 +373,7 @@ h1 {
   }
 
   .coaches h2 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 24px;
   }
 
@@ -376,10 +387,10 @@ h1 {
   }
 
   .coach-card h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .coach-card p {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
