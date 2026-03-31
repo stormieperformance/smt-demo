@@ -200,9 +200,9 @@ h1 {
   white-space: nowrap;
   font-size: 24px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding-right: 48px;
+  padding-right: 100px;
   flex-shrink: 0;
 }
 
