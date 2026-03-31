@@ -495,7 +495,7 @@ h1 {
     left: 50%;
     bottom: 14px;
     width: 115%;
-    transform: rotate(-5deg);
+    transform: translateX(-50%) rotate(-5deg);
     padding: 8px 0;
   }
 
