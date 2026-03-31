@@ -217,7 +217,6 @@ h1 {
   height: 500px;
   object-fit: cover;
   display: block;
-  animation: imageFlicker 4s infinite steps(1);
 }
 
 .start-image::before,
