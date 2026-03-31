@@ -314,10 +314,12 @@ h1 {
     padding: 0;
   }
   
-  .hero-video {
+.hero-video {
   top: 50%;
-  left: 65%;
-  transform: translate(-50%, -50%) scale(1.1);
+  left: 72%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
 }
 
   h1 {
