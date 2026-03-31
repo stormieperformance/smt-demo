@@ -318,6 +318,53 @@ h1 {
   margin: 0;
   opacity: 0.6;
 }
+/* SCHEDULE */
+
+.schedule {
+  padding: 100px 64px;
+}
+
+.schedule-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.schedule h2 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.schedule-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.schedule-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.schedule-card .time {
+  font-size: 24px;
+  font-weight: 600;
+  width: 80px;
+}
+
+.schedule-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.schedule-card p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
 
 /* ================= MOBILE ================= */
 
@@ -453,6 +500,23 @@ h1 {
     padding-right: 48px;
     letter-spacing: 0.06em;
   }
+
+  .schedule {
+  padding: 60px 20px;
+}
+
+.schedule h2 {
+  font-size: 28px;
+}
+
+.schedule-card {
+  padding: 16px;
+}
+
+.schedule-card .time {
+  font-size: 18px;
+  width: 60px;
+}
 
   .coaches {
     padding: 40px 20px 60px;
