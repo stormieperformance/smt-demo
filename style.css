@@ -11,6 +11,7 @@ body {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  background: #000;
 }
 
 /* VIDEO */
@@ -30,7 +31,13 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.25) 0%,
+      rgba(0,0,0,0.45) 35%,
+      rgba(0,0,0,0.62) 100%
+    );
   z-index: 1;
 }
 
@@ -56,7 +63,7 @@ h1 {
   line-height: 1.4;
   max-width: 600px;
   margin: 0 0 24px 0;
-  opacity: 0.7;
+  opacity: 0.76;
 }
 
 /* BUTTON GROUP */
@@ -73,30 +80,35 @@ h1 {
   align-items: center;
   justify-content: center;
   padding: 12px 18px;
-  background: white;
-  color: black;
+  background: rgba(255,255,255,0.96);
+  color: #0a0a0a;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   white-space: nowrap;
-  border-radius: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
   transition: all 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  opacity: 0.9;
+  opacity: 0.94;
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255,255,255,0.04);
   color: white;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.08);
 }
 
 /* NEWS */
@@ -124,7 +136,7 @@ h1 {
   height: 260px;
   object-fit: cover;
   display: block;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .news-content {
@@ -150,8 +162,8 @@ h1 {
 
 .start-container {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1.22fr;
+  gap: 72px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -162,30 +174,30 @@ h1 {
 }
 
 .start-text h2 {
-  font-size: 64px;
+  font-size: 62px;
   margin-bottom: 20px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 0.95;
   font-weight: 600;
 }
 
 .start-text .sub {
-  font-size: 18px;
-  opacity: 0.5;
-  letter-spacing: 0.02em;
+  font-size: 20px;
+  opacity: 0.6;
+  letter-spacing: 0.01em;
   margin-bottom: 24px;
 }
 
 .start-text p {
   font-size: 17px;
-  opacity: 0.75;
+  opacity: 0.74;
   margin-bottom: 16px;
-  line-height: 1.7;
-  max-width: 480px;
+  line-height: 1.72;
+  max-width: 500px;
 }
 
 .start-buttons {
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
@@ -194,6 +206,7 @@ h1 {
 .start-image {
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .start-image::after {
@@ -202,28 +215,32 @@ h1 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.2),
-    rgba(0,0,0,0.5)
+    rgba(0,0,0,0.08) 0%,
+    rgba(0,0,0,0.18) 55%,
+    rgba(0,0,0,0.38) 100%
   );
-  border-radius: 4px;
+  border-radius: 10px;
   pointer-events: none;
 }
 
 .start-banner-marquee {
   position: absolute;
-  left: -8%;
-  bottom: 56px;
-  width: 116%;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(8px);
-  color: rgba(0,0,0,0.85);
-  transform: rotate(-4deg);
+  left: 50%;
+  bottom: 44px;
+  width: 118%;
+  transform: translateX(-50%) rotate(-4deg);
   overflow: hidden;
   z-index: 3;
-  padding: 14px 0;
+  padding: 12px 0;
   white-space: nowrap;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+
+  background: rgba(10,10,10,0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
 }
 
 .start-banner-track {
@@ -238,11 +255,11 @@ h1 {
 .start-banner-track span {
   display: inline-block;
   white-space: nowrap;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding-right: 80px;
+  padding-right: 120px;
   flex-shrink: 0;
 }
 
@@ -253,10 +270,10 @@ h1 {
 
 .start-image img {
   width: 100%;
-  height: 520px;
+  height: 560px;
   object-fit: cover;
   display: block;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 /* COACHES */
@@ -287,7 +304,7 @@ h1 {
   max-width: 100%;
   height: 320px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .coach-card h3 {
@@ -308,21 +325,33 @@ h1 {
 
   .hero-content {
     position: absolute;
-    top: 100px;
-    left: 20px;
-    right: 20px;
+    top: 92px;
+    left: 32px;
+    right: 24px;
     padding: 0;
+    max-width: none;
+  }
+
+  .hero-video {
+    top: 50%;
+    left: 62%;
+    width: 116%;
+    height: 110%;
+    transform: translate(-50%, -50%) scale(1.03);
   }
 
   h1 {
     font-size: 48px;
     line-height: 0.95;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    letter-spacing: -0.035em;
   }
 
   .hero p {
     font-size: 15px;
-    margin-bottom: 18px;
+    line-height: 1.45;
+    margin-bottom: 20px;
+    max-width: 320px;
   }
 
   .hero-buttons {
@@ -334,6 +363,7 @@ h1 {
   .btn {
     font-size: 13px;
     padding: 10px 14px;
+    letter-spacing: 0.04em;
   }
 
   .news-section {
@@ -376,10 +406,12 @@ h1 {
 
   .start-text h2 {
     font-size: 32px;
+    margin-bottom: 18px;
   }
 
   .start-text .sub {
     font-size: 18px;
+    margin-bottom: 20px;
   }
 
   .start-text p {
@@ -392,26 +424,35 @@ h1 {
     align-items: flex-start;
   }
 
+  .start-image {
+    border-radius: 8px;
+  }
+
   .start-image img {
     height: 300px;
+    border-radius: 8px;
   }
 
   .start-image::after {
-    border-radius: 4px;
+    border-radius: 8px;
   }
 
   .start-banner-marquee {
     left: 50%;
-    bottom: 48px;
-    width: 115%;
-    transform: translateX(-50%) rotate(-5deg);
-    padding: 6px 0;
+    bottom: 34px;
+    width: 122%;
+    transform: translateX(-50%) rotate(-4deg);
+    padding: 8px 0;
+
+    background: rgba(10,10,10,0.5);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.4);
   }
 
   .start-banner-track span {
     font-size: 11px;
-    padding-right: 40px;
-    letter-spacing: 0.06em;
+    padding-right: 64px;
+    letter-spacing: 0.08em;
   }
 
   .coaches {
