@@ -492,16 +492,17 @@ h1 {
   }
 
   .start-banner-marquee {
-    left: -18%;
-    bottom: 24px;
-    width: 136%;
+    left: -8%;
+    bottom: 18px;
+    width: 1316%;
     transform: rotate(-5deg);
-    padding: 12px 0;
+    padding: 8px 0;
   }
 
   .start-banner-track span {
-    font-size: 14px;
-    padding-right: 28px;
+    font-size: 11px;
+    padding-right: 20px;
+    letter-spacing: 0.05em;
   }
 
   .coaches {
