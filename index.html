@@ -6,11 +6,12 @@
   <title>TEST123</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=10" />
+  <link rel="stylesheet" href="./style.css?v=11" />
 </head>
 
 <body>
 
+  <!-- HERO -->
   <section class="hero">
     <video autoplay muted loop playsinline class="hero-video">
       <source src="https://raw.githubusercontent.com/stormieperformance/smt-demo/main/hero.mp4" type="video/mp4">
@@ -19,6 +20,7 @@
     <div class="hero-content">
       <h1>STORMIE<br>MUAY THAI</h1>
       <p>Train Muay Thai in Stockholm. All levels welcome.</p>
+
       <div class="hero-buttons">
         <a href="#" class="btn">Book Class</a>
         <a href="#" class="btn btn-secondary">Browse Memberships</a>
@@ -27,12 +29,20 @@
     </div>
   </section>
 
+
+  <!-- START TRAINING (FIXED + IMPROVED) -->
   <section class="start-training">
     <div class="start-container">
 
       <div class="start-text">
         <h2>Start Training</h2>
         <p class="sub">New to Muay Thai? Start here.</p>
+
+        <div class="start-points">
+          <span>Beginner friendly</span>
+          <span>Structured classes</span>
+          <span>First session support</span>
+        </div>
 
         <p>
           No experience needed.<br>
@@ -41,7 +51,7 @@
 
         <p>
           You’ll learn the basics, build conditioning,<br>
-          and train in a structured, supportive environment.
+          and train in a structured environment.
         </p>
 
         <div class="start-buttons">
@@ -57,7 +67,6 @@
           <div class="start-banner-track">
             <span>START TRAINING&nbsp;&nbsp;•&nbsp;&nbsp;NO EXPERIENCE NEEDED&nbsp;&nbsp;•&nbsp;&nbsp;BOOK YOUR FIRST CLASS&nbsp;&nbsp;•</span>
             <span>START TRAINING&nbsp;&nbsp;•&nbsp;&nbsp;NO EXPERIENCE NEEDED&nbsp;&nbsp;•&nbsp;&nbsp;BOOK YOUR FIRST CLASS&nbsp;&nbsp;•</span>
-            <span>START TRAINING&nbsp;&nbsp;•&nbsp;&nbsp;NO EXPERIENCE NEEDED&nbsp;&nbsp;•&nbsp;&nbsp;BOOK YOUR FIRST CLASS&nbsp;&nbsp;•</span>
           </div>
         </div>
       </div>
@@ -65,6 +74,8 @@
     </div>
   </section>
 
+
+  <!-- SCHEDULE -->
   <section class="schedule">
     <div class="schedule-container">
 
@@ -103,6 +114,8 @@
     </div>
   </section>
 
+
+  <!-- NEWS (MOVED DOWN) -->
   <section class="news-section">
     <h2>News</h2>
 
@@ -138,6 +151,8 @@
     </div>
   </section>
 
+
+  <!-- COACHES -->
   <section class="coaches">
     <h2>Coaches</h2>
 
@@ -163,6 +178,7 @@
 
     </div>
   </section>
+
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/smt-demo/app.js?v=123"></script>
