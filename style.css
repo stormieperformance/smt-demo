@@ -174,13 +174,16 @@ h1 {
   left: -10%;
   bottom: 38px;
   width: 120%;
-  background: #f3f3f3;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
   color: #000;
   transform: rotate(-4deg);
   overflow: hidden;
   z-index: 3;
-  padding: 16px 0;
+  padding: 14px 0;
   white-space: nowrap;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
 .start-banner-track {
@@ -195,21 +198,17 @@ h1 {
 .start-banner-track span {
   display: inline-block;
   white-space: nowrap;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding-right: 48px;
   flex-shrink: 0;
 }
 
 @keyframes startMarquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .start-image img {
@@ -219,86 +218,7 @@ h1 {
   display: block;
 }
 
-.start-image::before,
-.start-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.start-image::after {
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 20%,
-      rgba(255,255,255,0.10) 22%,
-      transparent 24%,
-      transparent 48%,
-      rgba(255,255,255,0.08) 50%,
-      transparent 52%,
-      transparent 100%
-    );
-  opacity: 0;
-  animation: tvGlitch 4s infinite steps(1);
-  mix-blend-mode: screen;
-}
-
-@keyframes tvGlitch {
-  0%, 100% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-  6% {
-    opacity: 0.35;
-    transform: translateX(-6px);
-  }
-  7% {
-    opacity: 0.15;
-    transform: translateX(4px);
-  }
-  8% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-  29% {
-    opacity: 0.4;
-    transform: translateX(8px);
-  }
-  30% {
-    opacity: 0.18;
-    transform: translateX(-5px);
-  }
-  31% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-  59% {
-    opacity: 0.3;
-    transform: translateX(-7px);
-  }
-  60% {
-    opacity: 0.14;
-    transform: translateX(5px);
-  }
-  61% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-  83% {
-    opacity: 0.3;
-    transform: translateX(6px);
-  }
-  84% {
-    opacity: 0.12;
-    transform: translateX(-4px);
-  }
-  85% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-}
+/* COACHES */
 
 .coaches {
   padding: 80px 64px;
@@ -425,16 +345,16 @@ h1 {
 
   .start-banner-marquee {
     left: 50%;
-    bottom: 40px;
+    bottom: 48px;
     width: 115%;
     transform: translateX(-50%) rotate(-5deg);
-    padding: 8px 0;
+    padding: 6px 0;
   }
 
   .start-banner-track span {
-    font-size: 11px;
+    font-size: 10px;
     padding-right: 20px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 
   .coaches {
