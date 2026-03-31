@@ -492,7 +492,7 @@ h1 {
   }
 
   .start-banner-marquee {
-    left: -50%;
+    left: 50%;
     bottom: 14px;
     width: 115%;
     transform: rotate(-5deg);
