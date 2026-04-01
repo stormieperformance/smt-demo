@@ -397,7 +397,7 @@ h1 {
 }
 
 .schedule-panel {
-  position: absolute;
+  display: none;
   inset: 0;
   opacity: 0;
   pointer-events: none;
@@ -407,6 +407,7 @@ h1 {
 
 .schedule-panel.active {
   opacity: 1;
+  display: block;
   pointer-events: auto;
   transform: translateY(0);
 }
