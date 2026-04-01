@@ -485,6 +485,10 @@ h1 {
   margin-bottom: 40px;
 }
 
+.memberships-carousel {
+  overflow: hidden;
+}
+
 .memberships-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
