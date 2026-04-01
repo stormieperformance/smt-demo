@@ -392,8 +392,6 @@ h1 {
 .schedule-slider {
   position: relative;
   margin-bottom: 32px;
-  overflow: hidden;
-  transition: height 0.45s ease;
 }
 
 .schedule-panel {
