@@ -976,12 +976,12 @@ h1 {
   }
 
   .start-training {
-    padding: 60px 20px;
+    padding: 12px 0 60px;
   }
 
   .start-container {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 20px;
   }
 
   .start-text {
@@ -1019,16 +1019,16 @@ h1 {
   }
 
   .start-image {
-    border-radius: 8px;
+    border-radius: 0;
   }
 
   .start-image img {
-    height: 300px;
-    border-radius: 8px;
+    height: 420px;
+    border-radius: 0;
   }
 
   .start-image::after {
-    border-radius: 8px;
+    border-radius: 0;
   }
 
   .start-banner-marquee {
