@@ -357,6 +357,8 @@ h1 {
   background: rgba(255,255,255,0.05);
 }
 
+/* SHOP */
+
 .shop-preview {
   padding: 100px 64px;
 }
@@ -393,63 +395,60 @@ h1 {
 
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
 
 .shop-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.shop-card:hover {
-  transform: translateY(-6px);
 }
 
 .shop-card img {
   width: 100%;
-  height: 320px;
+  height: 260px;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
   background: #000;
-  transition: transform 0.4s ease, opacity 0.25s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.shop-card:hover img {
-  transform: scale(1.04);
-  opacity: 0.92;
+.shop-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.08)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .shop-card h3 {
-  font-size: 18px;
-  margin: 14px 0 4px 0;
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  margin: 0;
+  font-size: 14px;
   font-weight: 500;
+  letter-spacing: 0.04em;
+  z-index: 2;
 }
 
 .shop-card p {
-  font-size: 14px;
-  opacity: 0.6;
-  margin: 0;
+  display: none;
 }
 
-@media (max-width: 900px) {
-  .shop-preview {
-    padding: 60px 20px;
-  }
+.shop-card:hover img {
+  transform: scale(1.05);
+}
 
-  .shop-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .shop-header h2 {
-    font-size: 28px;
-  }
-
-  .shop-card img {
-    height: 260px;
-  }
+.shop-card:hover::after {
+  opacity: 1;
 }
 
 /* NEWS */
@@ -860,11 +859,11 @@ h1 {
   }
 
   .memberships {
-  padding: 60px 20px;
+    padding: 60px 20px;
   }
 
   .memberships-grid {
-  grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .shop-preview {
@@ -872,18 +871,18 @@ h1 {
   }
 
   .shop-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .shop-image img {
-    height: 260px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .shop-header h2 {
     font-size: 28px;
   }
-  
+
+  .shop-card img {
+    height: 200px;
+  }
+
   .news-section {
     padding: 40px 20px;
   }
@@ -939,40 +938,40 @@ h1 {
   }
 
   .social-feed {
-  padding: 60px 20px;
+    padding: 60px 20px;
   }
 
   .social-grid {
-  grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .contact-location {
-  padding: 60px 20px;
+    padding: 60px 20px;
   }
 
   .contact-location-container {
-  grid-template-columns: 1fr;
-  gap: 28px;
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .contact-location-text h2 {
-  font-size: 28px;
+    font-size: 28px;
   }
 
   .map-placeholder {
-  height: 260px;
+    height: 260px;
   }
 
   .footer {
-  padding: 40px 20px 20px;
+    padding: 40px 20px 20px;
   }
 
   .footer-container {
-  flex-direction: column;
-  gap: 32px;
+    flex-direction: column;
+    gap: 32px;
   }
 
   .footer-right {
-  gap: 40px;
+    gap: 40px;
   }
 }
