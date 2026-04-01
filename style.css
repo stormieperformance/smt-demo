@@ -261,6 +261,25 @@ h1 {
   opacity: 1;
 }
 
+.start-cta-below {
+  margin-top: 28px;
+}
+
+.start-cta-below .btn {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .start-cta-below {
+    margin-top: 32px;
+  }
+
+  .start-cta-below .btn {
+    width: auto;
+  }
+}
+
 /* SCHEDULE */
 
 .schedule {
