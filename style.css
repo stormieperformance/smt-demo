@@ -555,9 +555,29 @@ h1 {
     padding: 60px 20px;
   }
 
-  .memberships-grid {
-    grid-template-columns: 1fr;
-  }
+.memberships-carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 6px;
+}
+
+.memberships-grid {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+
+.membership-card {
+  min-width: 82vw;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.memberships-carousel::-webkit-scrollbar {
+  display: none;
+}
 
   .membership-badge {
     top: 14px;
