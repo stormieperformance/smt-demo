@@ -184,6 +184,7 @@ h1 {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  height: 560px; /* ← lägg till denna */
 }
 
 .start-image::after {
