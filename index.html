@@ -417,6 +417,35 @@
     current = (current + 1) % slides.length;
     slides[current].classList.add('active');
   }, 3000);
+// SCHEDULE
+const scheduleTabs = document.querySelectorAll('.schedule-tab');
+const schedulePanels = document.querySelectorAll('.schedule-panel');
+let scheduleIndex = 0;
+const scheduleOrder = ['today', 'tomorrow'];
+
+function showSchedulePanel(name) {
+  scheduleTabs.forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.schedule === name);
+  });
+
+  schedulePanels.forEach(panel => {
+    panel.classList.toggle('active', panel.dataset.panel === name);
+  });
+}
+
+scheduleTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.schedule;
+    scheduleIndex = scheduleOrder.indexOf(target);
+    showSchedulePanel(target);
+  });
+});
+
+setInterval(() => {
+  scheduleIndex = (scheduleIndex + 1) % scheduleOrder.length;
+  showSchedulePanel(scheduleOrder[scheduleIndex]);
+}, 3500);
+    
 </script>
 </body>
 </html>
