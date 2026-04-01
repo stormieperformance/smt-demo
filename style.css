@@ -391,7 +391,7 @@ h1 {
 
 .schedule-slider {
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .schedule-panel {
@@ -448,10 +448,6 @@ h1 {
 
   .schedule h2 {
     font-size: 28px;
-  }
-
-  .schedule-slider {
-    min-height: 340px;
   }
 
   .schedule-card {
