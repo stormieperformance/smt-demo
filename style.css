@@ -167,11 +167,15 @@ h1 {
 /* OVERLAY PÅ BILDEN */
 .start-image-overlay {
   position: absolute;
-  top: 32px;
+  top: auto;
+  bottom: 32px;
+
   left: 32px;
   right: 32px;
+
   z-index: 5;
-  max-width: 430px;
+
+  max-width: 320px;
 }
 
 .start-image-overlay h3 {
