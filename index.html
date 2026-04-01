@@ -433,21 +433,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/smt-demo/app.js?v=123"></script>
+<script>
+const slides = document.querySelectorAll('.start-image .slide');
+let current = 0;
 
-  <script>
-  const slides = document.querySelectorAll('.start-image .slide');
-  let current = 0;
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 3000);
 
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 3000);
 // SCHEDULE
 const scheduleTabs = document.querySelectorAll('.schedule-tab');
 const schedulePanels = document.querySelectorAll('.schedule-panel');
 let scheduleIndex = 0;
 const scheduleOrder = ['today', 'tomorrow'];
+let scheduleInterval;
 
 function showSchedulePanel(name) {
   scheduleTabs.forEach(tab => {
@@ -459,20 +460,31 @@ function showSchedulePanel(name) {
   });
 }
 
+function startScheduleRotation() {
+  scheduleInterval = setInterval(() => {
+    scheduleIndex = (scheduleIndex + 1) % scheduleOrder.length;
+    showSchedulePanel(scheduleOrder[scheduleIndex]);
+  }, 4500);
+}
+
+function resetScheduleRotation() {
+  clearInterval(scheduleInterval);
+  startScheduleRotation();
+}
+
 scheduleTabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const target = tab.dataset.schedule;
     scheduleIndex = scheduleOrder.indexOf(target);
     showSchedulePanel(target);
+    resetScheduleRotation();
   });
 });
 
-setInterval(() => {
-  scheduleIndex = (scheduleIndex + 1) % scheduleOrder.length;
-  showSchedulePanel(scheduleOrder[scheduleIndex]);
-}, 3500);
-    
+showSchedulePanel(scheduleOrder[0]);
+startScheduleRotation();
 </script>
+  
 </body>
 </html>
 
