@@ -472,6 +472,10 @@ h1 {
     font-size: 18px;
     width: 60px;
   }
+  .schedule .btn {
+  width: 100%;
+  text-align: center;
+  }
 }
 
 
