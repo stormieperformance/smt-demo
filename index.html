@@ -61,43 +61,87 @@
   </section>
 
   <!-- SCHEDULE -->
-  <section class="schedule">
-    <div class="schedule-container">
+<!-- SCHEDULE -->
+<section class="schedule">
+  <div class="schedule-container">
 
+    <div class="schedule-header">
       <h2>Schedule</h2>
 
-      <div class="schedule-grid">
+      <div class="schedule-tabs">
+        <button class="schedule-tab active" data-schedule="today" type="button">Today</button>
+        <button class="schedule-tab" data-schedule="tomorrow" type="button">Tomorrow</button>
+      </div>
+    </div>
 
-        <div class="schedule-card">
-          <div class="time">07:00</div>
-          <div class="info">
-            <h3>Morning Technique</h3>
-            <p>All levels</p>
+    <div class="schedule-slider">
+
+      <div class="schedule-panel active" data-panel="today">
+        <div class="schedule-grid">
+
+          <div class="schedule-card">
+            <div class="time">07:00</div>
+            <div class="info">
+              <h3>Morning Technique</h3>
+              <p>All levels</p>
+            </div>
           </div>
-        </div>
 
-        <div class="schedule-card">
-          <div class="time">12:00</div>
-          <div class="info">
-            <h3>Pad Work</h3>
-            <p>Intermediate</p>
+          <div class="schedule-card">
+            <div class="time">12:00</div>
+            <div class="info">
+              <h3>Pad Work</h3>
+              <p>Intermediate</p>
+            </div>
           </div>
-        </div>
 
-        <div class="schedule-card">
-          <div class="time">18:00</div>
-          <div class="info">
-            <h3>Fight Training</h3>
-            <p>Advanced</p>
+          <div class="schedule-card">
+            <div class="time">18:00</div>
+            <div class="info">
+              <h3>Fight Training</h3>
+              <p>Advanced</p>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
 
-      <a href="#" class="btn">View Full Schedule</a>
+      <div class="schedule-panel" data-panel="tomorrow">
+        <div class="schedule-grid">
+
+          <div class="schedule-card">
+            <div class="time">08:00</div>
+            <div class="info">
+              <h3>Beginner Muay Thai</h3>
+              <p>Beginner</p>
+            </div>
+          </div>
+
+          <div class="schedule-card">
+            <div class="time">13:00</div>
+            <div class="info">
+              <h3>Technical Drills</h3>
+              <p>All levels</p>
+            </div>
+          </div>
+
+          <div class="schedule-card">
+            <div class="time">19:00</div>
+            <div class="info">
+              <h3>Sparring</h3>
+              <p>Advanced</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     </div>
-  </section>
+
+    <a href="#" class="btn">View Full Schedule</a>
+
+  </div>
+</section>
 
   <!-- MEMBERSHIPS -->
   <section class="memberships">
