@@ -571,6 +571,7 @@ h1 {
 
 .membership-card {
   min-width: 82vw;
+  max-width: 82vw;
   flex: 0 0 auto;
   scroll-snap-align: start;
 }
