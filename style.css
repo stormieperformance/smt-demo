@@ -203,20 +203,20 @@ h1 {
 
 .start-banner-marquee {
   position: absolute;
-  left: -5%;
-  bottom: 60px;
-  width: 110%;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background: rgba(10,10,10,0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: rgba(255,255,255,0.75);
-  transform: rotate(-3deg);
+  transform: none;
   overflow: hidden;
   z-index: 3;
   padding: 12px 0;
   white-space: nowrap;
   border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: none;
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
