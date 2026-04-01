@@ -471,8 +471,9 @@ h1 {
     width: 60px;
   }
   .schedule .btn {
-  width: 100%;
-  text-align: center;
+  width: auto;
+  display: inline-flex;
+  margin-top: 24px;
   }
 }
 
