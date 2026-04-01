@@ -446,9 +446,18 @@ setInterval(() => {
 // SCHEDULE
 const scheduleTabs = document.querySelectorAll('.schedule-tab');
 const schedulePanels = document.querySelectorAll('.schedule-panel');
+const scheduleSlider = document.querySelector('.schedule-slider');
+
 let scheduleIndex = 0;
 const scheduleOrder = ['today', 'tomorrow'];
 let scheduleInterval;
+
+function updateScheduleHeight(name) {
+  const activePanel = document.querySelector(`.schedule-panel[data-panel="${name}"]`);
+  if (activePanel && scheduleSlider) {
+    scheduleSlider.style.height = activePanel.scrollHeight + 'px';
+  }
+}
 
 function showSchedulePanel(name) {
   scheduleTabs.forEach(tab => {
@@ -457,6 +466,10 @@ function showSchedulePanel(name) {
 
   schedulePanels.forEach(panel => {
     panel.classList.toggle('active', panel.dataset.panel === name);
+  });
+
+  requestAnimationFrame(() => {
+    updateScheduleHeight(name);
   });
 }
 
@@ -481,9 +494,14 @@ scheduleTabs.forEach(tab => {
   });
 });
 
-showSchedulePanel(scheduleOrder[0]);
-startScheduleRotation();
-</script>
+window.addEventListener('load', () => {
+  showSchedulePanel(scheduleOrder[0]);
+  startScheduleRotation();
+});
+
+window.addEventListener('resize', () => {
+  showSchedulePanel(scheduleOrder[scheduleIndex]);
+});
   
 </body>
 </html>
