@@ -261,23 +261,29 @@ h1 {
   opacity: 1;
 }
 
-.start-cta-below {
-  margin-top: 28px;
+.start-cta-overlay {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 60px;
+
+  background: #fff;
+  color: #000;
+  padding: 14px 22px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  z-index: 5;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.start-cta-below .btn {
-  width: 100%;
-  text-align: center;
-}
-
-@media (min-width: 900px) {
-  .start-cta-below {
-    margin-top: 32px;
-  }
-
-  .start-cta-below .btn {
-    width: auto;
-  }
+.start-cta-overlay:hover {
+  transform: translateX(-50%) scale(1.04);
 }
 
 /* SCHEDULE */
