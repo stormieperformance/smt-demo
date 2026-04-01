@@ -398,18 +398,10 @@ h1 {
 
 .schedule-panel {
   display: none;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .schedule-panel.active {
-  opacity: 1;
   display: block;
-  pointer-events: auto;
-  transform: translateY(0);
 }
 
 .schedule-grid {
