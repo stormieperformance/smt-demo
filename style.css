@@ -391,7 +391,7 @@ h1 {
 
 .schedule-slider {
   position: relative;
-  height: 340px;
+  min-height: 340px;
   margin-bottom: 64px;
   overflow: hidden;
 }
