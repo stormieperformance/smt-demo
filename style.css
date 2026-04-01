@@ -834,13 +834,14 @@ h1 {
   }
 
   .start-banner-marquee {
-    left: 50%;
-    bottom: 34px;
-    width: 122%;
-    transform: translateX(-50%) rotate(-4deg);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transform: none;
     padding: 6px 0;
     background: rgba(10,10,10,0.5);
-    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: none;
     box-shadow: 0 14px 36px rgba(0,0,0,0.4);
   }
 
