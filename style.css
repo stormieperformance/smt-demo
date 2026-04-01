@@ -872,12 +872,13 @@ h1 {
   }
 
   .shop-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
   }
 
-  .shop-image img {
-    height: 260px;
+.shop-card img {  
+  height: auto;
+  aspect-ratio: 1 / 1;
   }
 
   .shop-header h2 {
