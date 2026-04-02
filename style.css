@@ -494,6 +494,10 @@ h1 {
   overflow: hidden;
 }
 
+.carousel-controls {
+  display: none;
+}
+
 .memberships-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -505,6 +509,7 @@ h1 {
   padding: 28px;
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(255,255,255,0.02);
+  overflow: hidden;
 }
 
 .membership-card h3 {
@@ -524,24 +529,20 @@ h1 {
   margin-bottom: 20px;
 }
 
-.membership-badge {
+.membership-ribbon {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.82);
-  border: 1px solid rgba(255,255,255,0.14);
+  top: 18px;
+  right: -42px;
+  transform: rotate(45deg);
+  background: rgba(255,255,255,0.9);
+  color: #000;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 7px 10px;
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 44px;
+  text-align: center;
+  z-index: 3;
 }
 
 .membership-card.featured {
@@ -549,10 +550,9 @@ h1 {
   background: rgba(255,255,255,0.05);
 }
 
-.membership-card.featured .membership-badge {
+.membership-card.featured .membership-ribbon {
   background: #fff;
   color: #000;
-  border: none;
 }
 
 @media (max-width: 900px) {
@@ -560,36 +560,57 @@ h1 {
     padding: 60px 20px;
   }
 
-.memberships-carousel {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 6px;
-}
+  .carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
 
-.memberships-grid {
-  display: flex;
-  gap: 16px;
-  width: max-content;
-}
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
 
-.membership-card {
-  min-width: 82vw;
-  max-width: 82vw;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
+  .memberships-carousel {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 6px;
+  }
 
-.memberships-carousel::-webkit-scrollbar {
-  display: none;
-}
+  .memberships-grid {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+  }
 
-  .membership-badge {
-    top: 14px;
-    right: 14px;
+  .membership-card {
+    min-width: 80vw;
+    max-width: 80vw;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .memberships-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .membership-ribbon {
+    top: 16px;
+    right: -44px;
     font-size: 9px;
-    padding: 6px 9px;
+    padding: 6px 42px;
   }
 }
 
