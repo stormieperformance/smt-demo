@@ -1091,10 +1091,10 @@ h1 {
     border-radius: 0;
   }
 
-  .start-image img {
-    height: 420px;
-    border-radius: 0;
-  }
+  .start-image .slide {
+  height: 420px;
+  border-radius: 0;
+}
 
   .start-image::after {
     border-radius: 0;
@@ -1139,10 +1139,6 @@ h1 {
   padding: 60px 20px;
   }
 
-  .memberships-grid {
-  grid-template-columns: 1fr;
-  }
-
   .shop-preview {
     padding: 60px 20px;
   }
@@ -1150,11 +1146,6 @@ h1 {
   .shop-grid {
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
-  }
-
-  .shop-card img {  
-  height: auto;
-  aspect-ratio: 1 / 1;
   }
 
   .shop-header h2 {
