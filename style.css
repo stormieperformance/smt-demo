@@ -275,19 +275,19 @@ h1 {
   }
 
   .start-image {
-  height: auto;
-  aspect-ratio: 3 / 4;
-  border-radius: 8px;
-}
+    height: 760px;
+    border-radius: 8px;
+  }
 
   .start-image::after {
     border-radius: 8px;
   }
 
-  .start-image .slide {
-  height: 100%;
-  border-radius: 8px;
-}
+    .start-image .slide {
+    height: 760px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
 
   .start-image-overlay {
   top: auto;
