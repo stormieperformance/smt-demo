@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+:root {
+  --accent: #c9a96e;
+}
+
 /* HERO */
 .hero {
   position: relative;
