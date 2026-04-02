@@ -96,18 +96,7 @@ h1 {
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-primary {
-  background: var(--accent);
-  color: #000;
-  border: none;
-}
-
-.btn:hover {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.24);
-  transform: translateY(-1px);
-}
-
+/* GOLD BUTTON */
 .btn-primary {
   background: var(--accent);
   color: #000;
@@ -115,6 +104,21 @@ h1 {
   box-shadow: 0 4px 20px rgba(201,169,110,0.25);
 }
 
+/* DEFAULT HOVER */
+.btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.24);
+  transform: translateY(-1px);
+}
+
+/* GOLD HOVER FIX */
+.btn-primary:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-1px);
+}
+
+/* SECONDARY */
 .btn-secondary {
   background: transparent;
   color: rgba(255,255,255,0.82);
