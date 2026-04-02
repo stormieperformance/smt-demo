@@ -616,9 +616,12 @@ h1 {
   }
 
   .carousel-dot.active {
-    width: 18px;
-    background: rgba(255,255,255,0.95);
-  }
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.95);
+  transform: scale(1.35);
+}
+  
 }
 .shop-preview {
   padding: 100px 64px;
