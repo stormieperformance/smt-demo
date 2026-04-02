@@ -541,6 +541,25 @@ if (membershipCarousel && membershipDots.length > 0) {
 
   updateCarouselDots();
 }
+    updateCarouselDots();
+
+
+// LÄGG IN DETTA HÄR ↓↓↓
+
+const shopCards = document.querySelectorAll('.shop-card');
+
+shopCards.forEach(card => {
+  const variants = card.querySelectorAll('.variant');
+  let index = 0;
+
+  if (variants.length < 2) return;
+
+  setInterval(() => {
+    variants[index].classList.remove('active');
+    index = (index + 1) % variants.length;
+    variants[index].classList.add('active');
+  }, 2500);
+});
   </script>
 
 </body>
