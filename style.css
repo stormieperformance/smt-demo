@@ -1145,8 +1145,8 @@ h1 {
   }
   
   .shop-grid {
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
   }
 
   .shop-header h2 {
