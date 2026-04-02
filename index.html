@@ -147,11 +147,6 @@
     <h2>Memberships</h2>
     <p class="memberships-sub">Choose how you want to train.</p>
 
-    <div class="carousel-controls">
-  <button class="carousel-btn prev">‹</button>
-  <button class="carousel-btn next">›</button>
-</div>
-    
     <div class="memberships-carousel">
       <div class="memberships-grid">
 
@@ -204,6 +199,15 @@
         </div>
 
       </div>
+    </div>
+
+    <div class="carousel-dots">
+      <button class="carousel-dot active" data-index="0" type="button"></button>
+      <button class="carousel-dot" data-index="1" type="button"></button>
+      <button class="carousel-dot" data-index="2" type="button"></button>
+      <button class="carousel-dot" data-index="3" type="button"></button>
+      <button class="carousel-dot" data-index="4" type="button"></button>
+      <button class="carousel-dot" data-index="5" type="button"></button>
     </div>
 
   </div>
@@ -482,18 +486,37 @@
         showSchedulePanel(scheduleOrder[scheduleIndex]);
       }, 4500);
     }
-    const carousel = document.querySelector('.memberships-carousel');
-const prevBtn = document.querySelector('.carousel-btn.prev');
-const nextBtn = document.querySelector('.carousel-btn.next');
+    
+    const membershipCarousel = document.querySelector('.memberships-carousel');
+const membershipCards = document.querySelectorAll('.membership-card');
+const membershipDots = document.querySelectorAll('.carousel-dot');
 
-if (carousel && prevBtn && nextBtn) {
-  prevBtn.onclick = () => {
-    carousel.scrollBy({ left: -300, behavior: 'smooth' });
-  };
+function updateCarouselDots() {
+  if (!membershipCarousel || membershipCards.length === 0 || membershipDots.length === 0) return;
 
-  nextBtn.onclick = () => {
-    carousel.scrollBy({ left: 300, behavior: 'smooth' });
-  };
+  const scrollLeft = membershipCarousel.scrollLeft;
+  const cardWidth = membershipCards[0].offsetWidth + 16;
+  const activeIndex = Math.round(scrollLeft / cardWidth);
+
+  membershipDots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === activeIndex);
+  });
+}
+
+if (membershipCarousel && membershipDots.length > 0) {
+  membershipCarousel.addEventListener('scroll', updateCarouselDots);
+
+  membershipDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      const cardWidth = membershipCards[0].offsetWidth + 16;
+      membershipCarousel.scrollTo({
+        left: cardWidth * index,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  updateCarouselDots();
 }
   </script>
 
