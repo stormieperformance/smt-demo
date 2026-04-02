@@ -710,8 +710,8 @@ h1 {
   }
 
   .shop-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .shop-header h2 {
@@ -719,11 +719,12 @@ h1 {
   }
 
   .shop-image {
-    height: 260px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .shop-image .variant {
-    height: 260px;
+    height: 100%;
   }
 }
 
