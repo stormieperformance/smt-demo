@@ -147,6 +147,11 @@
     <h2>Memberships</h2>
     <p class="memberships-sub">Choose how you want to train.</p>
 
+    <div class="carousel-controls">
+  <button class="carousel-btn prev">‹</button>
+  <button class="carousel-btn next">›</button>
+</div>
+    
     <div class="memberships-carousel">
       <div class="memberships-grid">
 
@@ -477,6 +482,19 @@
         showSchedulePanel(scheduleOrder[scheduleIndex]);
       }, 4500);
     }
+    const carousel = document.querySelector('.memberships-carousel');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+if (carousel && prevBtn && nextBtn) {
+  prevBtn.onclick = () => {
+    carousel.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+
+  nextBtn.onclick = () => {
+    carousel.scrollBy({ left: 300, behavior: 'smooth' });
+  };
+}
   </script>
 
 </body>
