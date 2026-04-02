@@ -1142,10 +1142,10 @@ h1 {
   .shop-preview {
     padding: 60px 20px;
   }
-
+  
   .shop-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   }
 
   .shop-header h2 {
