@@ -1277,4 +1277,13 @@ h1 {
   .footer-right {
     gap: 40px;
   }
+  /* FORCE FIX – MOBILE DIVIDERS */
+
+@media (max-width: 900px) {
+  .start-divider-track span,
+  .about-divider-track span {
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+    padding-right: 32px !important;
+  }
 }
