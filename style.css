@@ -354,11 +354,12 @@ h1 {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 48px;
+  gap: 64px;
   align-items: center;
 }
 
 .about-media img {
+  filter: brightness(0.55) contrast(1.1);
   width: 100%;
   height: 620px;
   object-fit: cover;
