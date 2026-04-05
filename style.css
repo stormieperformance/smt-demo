@@ -116,10 +116,10 @@ h1 {
 /* START TRAINING */
 
 .start-training {
-  padding: 0 64px 100px;
+  padding: 100px 0;
 }
 
-.start-container {
+. start-container {
   max-width: 1200px;
   margin: 0 auto;
 }
