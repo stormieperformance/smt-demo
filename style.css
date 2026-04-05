@@ -1414,4 +1414,30 @@ h1 {
     padding-right: 32px;
   }
 }
+
+  /* REMOVE ALL GAP BETWEEN START → DIVIDER → ABOUT */
+
+.start-training {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.start-divider {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.about-divider {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.about-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
 }
