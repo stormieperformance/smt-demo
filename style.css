@@ -346,7 +346,7 @@ h1 {
 }
 
 .about-section {
-  padding: 100px 64px;
+  padding: 100px 0; /* removed side padding */
 }
 
 .about-container {
@@ -361,7 +361,7 @@ h1 {
 .about-media {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  /* removed border-radius */
 }
 
 .about-media img {
@@ -382,12 +382,13 @@ h1 {
     rgba(0,0,0,0.2),
     rgba(0,0,0,0.6)
   );
-  border-radius: 10px;
   pointer-events: none;
+  /* removed border-radius */
 }
 
 .about-content {
   max-width: 460px;
+  padding: 0 64px; /* moved padding here instead */
 }
 
 .about-label {
@@ -422,7 +423,7 @@ h1 {
 
 @media (max-width: 900px) {
   .about-section {
-    padding: 60px 20px;
+    padding: 60px 0; /* removed side padding */
   }
 
   .about-container {
@@ -430,21 +431,13 @@ h1 {
     gap: 28px;
   }
 
-  .about-media {
-    border-radius: 8px;
-  }
-
   .about-media img {
     height: 420px;
-    border-radius: 8px;
-  }
-
-  .about-media::after {
-    border-radius: 8px;
   }
 
   .about-content {
     max-width: 100%;
+    padding: 0 20px; /* mobile padding */
   }
 
   .about-content h2 {
