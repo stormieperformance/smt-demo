@@ -1280,11 +1280,6 @@ h1 {
     box-shadow: 0 14px 36px rgba(0,0,0,0.4);
   }
 
-  .start-banner-track span {
-    font-size: 12px;
-    padding-right: 48px;
-    letter-spacing: 0.06em;
-  }
 
   .schedule {
     padding: 60px 20px;
@@ -1411,4 +1406,12 @@ h1 {
   .footer-right {
   gap: 40px;
   }
+
+  @media (max-width: 900px) {
+  .start-divider-track span {
+    font-size: 10px !important;
+    letter-spacing: 0.08em;
+    padding-right: 32px;
+  }
+}
 }
