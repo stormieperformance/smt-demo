@@ -339,7 +339,7 @@ h1 {
   }
 
   .start-divider-track span {
-    font-size: 10px; !important;
+    font-size: 10px !important;
     letter-spacing: 0.08em;
     padding-right: 32px;
   }
