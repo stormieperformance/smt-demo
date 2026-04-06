@@ -631,6 +631,14 @@ shopCards.forEach(card => {
     variants[index].classList.add('active');
   }, 2500);
 });
+  const heroMenuToggle = document.querySelector('.hero-menu-toggle');
+const heroMenu = document.querySelector('.hero-menu');
+
+if (heroMenuToggle && heroMenu) {
+  heroMenuToggle.addEventListener('click', () => {
+    heroMenu.classList.toggle('active');
+  });
+}
   </script>
 
 </body>
