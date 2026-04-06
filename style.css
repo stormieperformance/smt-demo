@@ -23,19 +23,19 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 4;
+  z-index: 6;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 26px 24px 0;
-  pointer-events: none;
+  padding: 26px 32px 0;
 }
 
 .hero-brand {
-  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  z-index: 7;
 }
 
 .hero-brand img {
@@ -45,21 +45,7 @@ body {
 }
 
 .hero-menu-toggle {
-  pointer-events: auto;
-  position: absolute;
-  right: 24px;
-  top: 26px;
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+  display: none;
 }
 
 .hero-menu-toggle span {
@@ -72,30 +58,34 @@ body {
 
 .hero-menu {
   position: absolute;
-  top: 88px;
-  left: 20px;
-  right: 20px;
-  z-index: 5;
-  display: none;
-  flex-direction: column;
-  gap: 14px;
-  padding: 20px;
-  background: rgba(10,10,10,0.94);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
-.hero-menu.active {
+  right: 32px;
+  top: 30px;
+  z-index: 7;
   display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  backdrop-filter: none;
 }
 
 .hero-menu a {
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 0.04em;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   opacity: 0.82;
+  transition: opacity 0.2s ease;
+}
+
+.hero-menu a:visited,
+.hero-menu a:active,
+.hero-menu a:focus {
+  color: #fff;
+  text-decoration: none;
 }
 
 .hero-menu a:hover {
@@ -118,6 +108,104 @@ body {
   z-index: 0;
 }
 
+@media (max-width: 900px) {
+  .hero-topbar {
+    padding: 22px 20px 0;
+    justify-content: center;
+  }
+
+  .hero-brand img {
+    height: 36px;
+  }
+
+  .hero-menu-toggle {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 8;
+  }
+
+  .hero-menu {
+    position: absolute;
+    top: 74px;
+    left: 20px;
+    right: 20px;
+    z-index: 7;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px;
+    background: rgba(10, 10, 10, 0.94);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-menu.active {
+    display: flex;
+  }
+
+  .hero-menu a {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 140px;
+    left: 32px;
+    right: 24px;
+    padding: 0;
+    max-width: none;
+    z-index: 2;
+  }
+
+  .hero-buttons .btn {
+    width: auto;
+  }
+
+  .hero-video {
+    top: 50%;
+    left: 62%;
+    width: 116%;
+    height: 110%;
+    object-fit: cover;
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+
+  h1 {
+    font-size: 48px;
+    line-height: 0.95;
+    margin-bottom: 18px;
+    letter-spacing: -0.035em;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.45;
+    margin-bottom: 20px;
+    max-width: 320px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
 /* OVERLAY */
 .hero::after {
   content: "";
@@ -1291,75 +1379,6 @@ h1 {
     right: 24px;
     padding: 0;
     max-width: none;
-  }
-
-  @media (max-width: 900px) {
-  .hero-topbar {
-    padding: 22px 20px 0;
-  }
-
-  .hero-brand-main {
-    font-size: 24px;
-  }
-
-  .hero-brand-sub {
-    font-size: 8px;
-    letter-spacing: 0.24em;
-    margin-top: 3px;
-  }
-
-  .hero-menu-toggle {
-    right: 20px;
-    top: 20px;
-  }
-
-  .hero-content {
-    position: absolute;
-    top: 140px;
-    left: 32px;
-    right: 24px;
-    padding: 0;
-    max-width: none;
-    z-index: 2;
-  }
-
-  .hero-buttons .btn {
-    width: auto;
-  }
-
-  .hero-video {
-    top: 50%;
-    left: 62%;
-    width: 116%;
-    height: 110%;
-    object-fit: cover;
-    transform: translate(-50%, -50%) scale(1.03);
-  }
-
-  h1 {
-    font-size: 48px;
-    line-height: 0.95;
-    margin-bottom: 18px;
-    letter-spacing: -0.035em;
-  }
-
-  .hero p {
-    font-size: 15px;
-    line-height: 1.45;
-    margin-bottom: 20px;
-    max-width: 320px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .hero-menu {
-    top: 74px;
-    left: 20px;
-    right: 20px;
   }
     
   .btn {
