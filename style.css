@@ -1293,6 +1293,28 @@ h1 {
     max-width: none;
   }
 
+  @media (max-width: 900px) {
+  .hero-topbar {
+    padding: 22px 20px 0;
+  }
+
+  .hero-brand img {
+    height: 34px;
+  }
+
+  .hero-menu-toggle {
+    right: 20px;
+    top: 20px;
+  }
+
+  .hero-content {
+    top: 140px;
+  }
+
+  .hero-buttons .btn {
+    width: auto;
+  }
+    
   .hero-video {
     top: 50%;
     left: 62%;
