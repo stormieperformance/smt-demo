@@ -1298,8 +1298,14 @@ h1 {
     padding: 22px 20px 0;
   }
 
-  .hero-brand img {
-    height: 34px;
+  .hero-brand-main {
+    font-size: 24px;
+  }
+
+  .hero-brand-sub {
+    font-size: 8px;
+    letter-spacing: 0.24em;
+    margin-top: 3px;
   }
 
   .hero-menu-toggle {
@@ -1308,18 +1314,25 @@ h1 {
   }
 
   .hero-content {
+    position: absolute;
     top: 140px;
+    left: 32px;
+    right: 24px;
+    padding: 0;
+    max-width: none;
+    z-index: 2;
   }
 
   .hero-buttons .btn {
     width: auto;
   }
-    
+
   .hero-video {
     top: 50%;
     left: 62%;
     width: 116%;
     height: 110%;
+    object-fit: cover;
     transform: translate(-50%, -50%) scale(1.03);
   }
 
@@ -1343,6 +1356,12 @@ h1 {
     gap: 10px;
   }
 
+  .hero-menu {
+    top: 74px;
+    left: 20px;
+    right: 20px;
+  }
+    
   .btn {
     font-size: 13px;
     padding: 10px 14px;
