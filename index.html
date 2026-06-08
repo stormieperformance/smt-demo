@@ -58,6 +58,7 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close" aria-label="Close menu">&times;</button>
   <a href="#about" class="mobile-link">About</a>
   <a href="#schedule" class="mobile-link">Schedule</a>
   <a href="#memberships" class="mobile-link">Memberships</a>
@@ -99,16 +100,14 @@
 
 <!-- START TRAINING -->
 <section class="start-training">
-  <div class="start-image">
-    <img class="slide active" src="images/start-training.jpg" alt="">
-    <img class="slide" src="images/start2.jpg" alt="">
-    <img class="slide" src="images/start3.jpg" alt="">
-    <img class="slide" src="images/start6.jpg" alt="">
-    <div class="start-image-overlay">
-      <h3>Start Training</h3>
-      <p class="start-overlay-sub">Try your first class — no experience needed.</p>
-      <button class="btn btn-primary start-overlay-cta open-modal">Try your first class for free</button>
-    </div>
+  <img class="slide active" src="images/start-training.jpg" alt="">
+  <img class="slide" src="images/start2.jpg" alt="">
+  <img class="slide" src="images/start3.jpg" alt="">
+  <img class="slide" src="images/start6.jpg" alt="">
+  <div class="start-overlay">
+    <h3>Start Training</h3>
+    <p>Try your first class — no experience needed.</p>
+    <button class="btn btn-primary open-modal">Try your first class for free</button>
   </div>
 </section>
 
@@ -430,17 +429,19 @@ window.addEventListener('scroll', () => {
 // HAMBURGER
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('active');
   document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
 });
+document.getElementById('mobile-close').addEventListener('click', closeMobileMenu);
 document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('active');
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeMobileMenu);
 });
 
 // MODAL
