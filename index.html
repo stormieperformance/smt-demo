@@ -267,35 +267,35 @@
     <div class="shop-grid">
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/hoodie.png" alt="Hoodie black"><img class="variant" src="images/hoodie-white.png" alt="Hoodie white"></div>
-        <h3>Hoodie</h3>
+        <div class="shop-card-info"><h3>Hoodie</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/tee.png" alt="T-Shirt black"><img class="variant" src="images/tee-white.png" alt="T-Shirt white"></div>
-        <h3>T-Shirt</h3>
+        <div class="shop-card-info"><h3>T-Shirt</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/cap.png" alt="Cap black"><img class="variant" src="images/cap-white.png" alt="Cap white"></div>
-        <h3>Cap</h3>
+        <div class="shop-card-info"><h3>Cap</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/beanie.png" alt="Beanie black"><img class="variant" src="images/beanie-white.png" alt="Beanie white"></div>
-        <h3>Beanie</h3>
+        <div class="shop-card-info"><h3>Beanie</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/stormiewraps.png" alt="Hand Wraps"><img class="variant" src="images/stormiewraps-white.png" alt="Hand Wraps white"></div>
-        <h3>Hand Wraps</h3>
+        <div class="shop-card-info"><h3>Hand Wraps</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/blackshorts.png" alt="Black Shorts"><img class="variant" src="images/blackshorts-white.png" alt="Black Shorts white"></div>
-        <h3>Black Shorts</h3>
+        <div class="shop-card-info"><h3>Black Shorts</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/stripedshorts.png" alt="Striped Shorts"><img class="variant" src="images/stripedshorts-inverted.png" alt="Striped Shorts inverted"></div>
-        <h3>Striped Shorts</h3>
+        <div class="shop-card-info"><h3>Striped Shorts</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
       <div class="shop-card">
         <div class="shop-image"><img class="variant active" src="images/checkeredshorts.png" alt="Checkered Shorts"><img class="variant" src="images/checkeredshorts-inverted.png" alt="Checkered Shorts inverted"></div>
-        <h3>Checkered Shorts</h3>
+        <div class="shop-card-info"><h3>Checkered Shorts</h3><div class="shop-dots"><span class="shop-dot active"></span><span class="shop-dot"></span></div></div>
       </div>
     </div>
   </div>
@@ -515,12 +515,15 @@ if (carousel) {
 // SHOP AUTO-BLINK
 document.querySelectorAll('.shop-card').forEach(card => {
   const variants = card.querySelectorAll('.variant');
+  const dots = card.querySelectorAll('.shop-dot');
   let idx = 0;
   if (variants.length < 2) return;
   setInterval(() => {
     variants[idx].classList.remove('active');
+    if (dots[idx]) dots[idx].classList.remove('active');
     idx = (idx + 1) % variants.length;
     variants[idx].classList.add('active');
+    if (dots[idx]) dots[idx].classList.add('active');
   }, 2500);
 });
 
