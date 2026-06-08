@@ -1,19 +1,42 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SMT</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=99" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SMT</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="./style.css?v=100" />
 </head>
-
 <body>
 
-  <!-- HERO -->
- <section class="hero">
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <h3>Book a Class</h3>
+    <p class="modal-sub">Try your first class for free. We'll get back to you within 24 hours.</p>
+    <div class="modal-form">
+      <input type="text" placeholder="Your name" autocomplete="name" />
+      <input type="email" placeholder="Email address" autocomplete="email" />
+      <input type="tel" placeholder="Phone number (optional)" autocomplete="tel" />
+      <select>
+        <option value="" disabled selected>Which class interests you?</option>
+        <option>Morning Technique</option>
+        <option>Pad Work</option>
+        <option>Fight Training</option>
+        <option>Beginner Muay Thai</option>
+        <option>Not sure yet</option>
+      </select>
+      <button class="modal-submit" id="modal-submit">Send request →</button>
+      <p class="modal-note">No commitment. No equipment needed.</p>
+    </div>
+  </div>
+</div>
 
+<!-- HERO -->
+<section class="hero">
+  <!-- NAVBAR -->
   <div class="hero-topbar">
     <a href="#" class="hero-brand">
       <div class="hero-brand-mark">
@@ -22,21 +45,35 @@
       </div>
     </a>
 
-    <button class="hero-menu-toggle" aria-label="Open menu" type="button">
+    <!-- Desktop menu -->
+    <nav class="hero-menu" id="hero-menu">
+      <a href="#about">About</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#memberships">Memberships</a>
+      <a href="#shop">Shop</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#contact">Contact</a>
+      <a href="https://instagram.com/stormiemuaythai" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <button class="hero-menu-toggle" id="hamburger" aria-label="Open menu" type="button">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </div>
 
-  <div class="hero-menu">
-    <a href="#about">About</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#memberships">Memberships</a>
-    <a href="#shop">Shop</a>
-    <a href="#coaches">Coaches</a>
-    <a href="#contact">Contact</a>
-    <a href="https://instagram.com/stormiemuaythai" target="_blank" rel="noopener noreferrer">Instagram</a>
+  <!-- Mobile fullscreen menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#schedule" class="mobile-link">Schedule</a>
+    <a href="#memberships" class="mobile-link">Memberships</a>
+    <a href="#shop" class="mobile-link">Shop</a>
+    <a href="#coaches" class="mobile-link">Coaches</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <a href="https://instagram.com/stormiemuaythai" target="_blank" rel="noopener noreferrer" class="mobile-link">Instagram</a>
+    <button class="btn open-modal" style="margin-top:24px;">Book Class</button>
   </div>
 
   <video autoplay muted loop playsinline class="hero-video">
@@ -46,44 +83,39 @@
   <div class="hero-content">
     <h1>STORMIE<br>MUAY THAI</h1>
     <p>Train Muay Thai in Stockholm. All levels welcome.</p>
-
     <div class="hero-buttons">
-      <a href="#" class="btn">Book Class</a>
+      <button class="btn open-modal">Book Class</button>
+      <a href="#memberships" class="btn btn-secondary">View Memberships</a>
     </div>
   </div>
-
 </section>
 
-  <!-- START DIVIDER -->
-  <section class="start-divider">
-    <div class="start-divider-marquee">
-      <div class="start-divider-track">
-        <span>START TRAINING&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;TRY YOUR FIRST CLASS FOR FREE&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;BEGINNER FRIENDLY&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
-        <span>START TRAINING&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;TRY YOUR FIRST CLASS FOR FREE&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;BEGINNER FRIENDLY&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
-      </div>
+<!-- START DIVIDER -->
+<section class="start-divider">
+  <div class="start-divider-marquee">
+    <div class="start-divider-track">
+      <span>START TRAINING&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;TRY YOUR FIRST CLASS FOR FREE&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;BEGINNER FRIENDLY&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
+      <span>START TRAINING&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;TRY YOUR FIRST CLASS FOR FREE&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;BEGINNER FRIENDLY&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- START TRAINING -->
-  <section class="start-training">
-    <div class="start-image">
-      <img class="slide active" src="images/start-training.jpg" alt="">
-      <img class="slide" src="images/start2.jpg" alt="">
-      <img class="slide" src="images/start3.jpg" alt="">
-      <img class="slide" src="images/start6.jpg" alt="">
-
-      <div class="start-image-overlay">
-        <h3>Start Training</h3>
-        <p class="start-overlay-sub">Try your first class — no experience needed.</p>
-
-        <a href="#" class="btn start-overlay-cta">
-          Try your first class for free
-        </a>
-      </div>
+<!-- START TRAINING -->
+<section class="start-training">
+  <div class="start-image">
+    <img class="slide active" src="images/start-training.jpg" alt="">
+    <img class="slide" src="images/start2.jpg" alt="">
+    <img class="slide" src="images/start3.jpg" alt="">
+    <img class="slide" src="images/start6.jpg" alt="">
+    <div class="start-image-overlay">
+      <h3>Start Training</h3>
+      <p class="start-overlay-sub">Try your first class — no experience needed.</p>
+      <button class="btn start-overlay-cta open-modal">Try your first class for free</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT DIVIDER -->
+<!-- ABOUT DIVIDER -->
 <section class="about-divider">
   <div class="about-divider-marquee">
     <div class="about-divider-track">
@@ -93,185 +125,148 @@
   </div>
 </section>
 
-  <section class="about-section">
+<!-- ABOUT -->
+<section class="about-section" id="about">
   <div class="about-container">
-
     <div class="about-media">
       <img src="images/about-training.png" alt="Stormie Muay Thai training in Stockholm">
     </div>
-
     <div class="about-content">
       <span class="about-label">About</span>
       <h2>More than a gym</h2>
       <p class="about-tagline">A place to train, built with intent</p>
-
-      <p>
-        Stormie Muay Thai is built around one thing. Quality training.
-      </p>
-
-      <p>
-        Everything we do is deliberate. Smaller groups, focused sessions, real attention to detail.
-      </p>
-
-      <p>
-        You do not need experience to start. You just need the willingness to train.
-      </p>
-
-      <p>
-        We focus on technique, conditioning, and long term progress. No noise. No distractions. Just the work.
-      </p>
-
-      <p>
-        Located in Stockholm.
-      </p>
+      <p>Stormie Muay Thai is built around one thing. Quality training.</p>
+      <p>Everything we do is deliberate. Smaller groups, focused sessions, real attention to detail.</p>
+      <p>You do not need experience to start. You just need the willingness to train.</p>
+      <p>We focus on technique, conditioning, and long term progress. No noise. No distractions. Just the work.</p>
+      <p>Located in Stockholm.</p>
     </div>
-
   </div>
 </section>
 
-  <!-- SCHEDULE -->
-  <section class="schedule">
-    <div class="schedule-container">
-
-      <div class="schedule-header">
-        <h2>Schedule</h2>
-
-        <div class="schedule-tabs">
-          <button class="schedule-tab active" data-schedule="today" type="button">Today</button>
-          <button class="schedule-tab" data-schedule="tomorrow" type="button">Tomorrow</button>
-        </div>
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <div class="schedule-container">
+    <div class="schedule-header">
+      <h2>Schedule</h2>
+      <div class="schedule-tabs">
+        <button class="schedule-tab active" data-schedule="today" type="button">Today</button>
+        <button class="schedule-tab" data-schedule="tomorrow" type="button">Tomorrow</button>
       </div>
-
-      <div class="schedule-slider">
-
-        <div class="schedule-panel active" data-panel="today">
-          <div class="schedule-grid">
-
-            <div class="schedule-card">
-              <div class="time">07:00</div>
-              <div class="info">
-                <h3>Morning Technique</h3>
-                <p>All levels</p>
-              </div>
-            </div>
-
-            <div class="schedule-card">
-              <div class="time">12:00</div>
-              <div class="info">
-                <h3>Pad Work</h3>
-                <p>Intermediate</p>
-              </div>
-            </div>
-
-            <div class="schedule-card">
-              <div class="time">18:00</div>
-              <div class="info">
-                <h3>Fight Training</h3>
-                <p>Advanced</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="schedule-panel" data-panel="tomorrow">
-          <div class="schedule-grid">
-
-            <div class="schedule-card">
-              <div class="time">08:00</div>
-              <div class="info">
-                <h3>Beginner Muay Thai</h3>
-                <p>Beginner</p>
-              </div>
-            </div>
-
-            <div class="schedule-card">
-              <div class="time">13:00</div>
-              <div class="info">
-                <h3>Technical Drills</h3>
-                <p>All levels</p>
-              </div>
-            </div>
-
-            <div class="schedule-card">
-              <div class="time">19:00</div>
-              <div class="info">
-                <h3>Sparring</h3>
-                <p>Advanced</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-      <a href="#" class="btn">View Full Schedule</a>
-
     </div>
-  </section>
+    <div class="schedule-slider">
+      <div class="schedule-panel active" data-panel="today">
+        <div class="schedule-grid">
+          <div class="schedule-card">
+            <div class="time">07:00</div>
+            <div class="info">
+              <h3>Morning Technique</h3>
+              <p>All levels</p>
+            </div>
+            <button class="schedule-book-btn open-modal">Book →</button>
+          </div>
+          <div class="schedule-card">
+            <div class="time">12:00</div>
+            <div class="info">
+              <h3>Pad Work</h3>
+              <p>Intermediate</p>
+            </div>
+            <button class="schedule-book-btn open-modal">Book →</button>
+          </div>
+          <div class="schedule-card">
+            <div class="time">18:00</div>
+            <div class="info">
+              <h3>Fight Training</h3>
+              <p>Advanced</p>
+            </div>
+            <button class="schedule-book-btn open-modal">Book →</button>
+          </div>
+        </div>
+      </div>
+      <div class="schedule-panel" data-panel="tomorrow">
+        <div class="schedule-grid">
+          <div class="schedule-card">
+            <div class="time">08:00</div>
+            <div class="info">
+              <h3>Beginner Muay Thai</h3>
+              <p>Beginner</p>
+            </div>
+            <button class="schedule-book-btn open-modal">Book →</button>
+          </div>
+          <div class="schedule-card">
+            <div class="time">13:00</div>
+            <div class="info">
+              <h3>Technical Drills</h3>
+              <p>All levels</p>
+            </div>
+            <button class="schedule-book-btn open-modal">Book →</button>
+          </div>
+          <div class="schedule-card">
+            <div class="time">19:00</div>
+            <div class="info">
+              <h3>Sparring</h3>
+              <p>Advanced</p>
+            </div>
+            <button class="schedule-book-btn open-modal">Book →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn open-modal">View Full Schedule</button>
+  </div>
+</section>
 
 <!-- MEMBERSHIPS -->
-<section class="memberships">
+<section class="memberships" id="memberships">
   <div class="memberships-container">
-
     <h2>Memberships</h2>
     <p class="memberships-sub">Choose how you want to train.</p>
-
     <div class="memberships-carousel">
       <div class="memberships-grid">
-
         <div class="membership-card">
           <div class="membership-ribbon">Flexible</div>
           <h3>Stormie Drop-in</h3>
           <p class="price">199 kr</p>
           <p class="desc">Train when you want. No commitment.</p>
-          <a href="#" class="btn">Book class</a>
+          <button class="btn open-modal">Book class</button>
         </div>
-
         <div class="membership-card featured">
           <div class="membership-ribbon">Best Value</div>
           <h3>Stormie Unlimited</h3>
           <p class="price">999 kr / month</p>
           <p class="desc">Unlimited classes. Best value.</p>
-          <a href="#" class="btn">Start membership</a>
+          <button class="btn open-modal">Start membership</button>
         </div>
-
         <div class="membership-card">
           <div class="membership-ribbon">Beginner</div>
           <h3>Stormie Start</h3>
           <p class="price">4 classes 499 kr</p>
           <p class="desc">Start your journey. Learn the basics.</p>
-          <a href="#" class="btn">Start here</a>
+          <button class="btn open-modal">Start here</button>
         </div>
-
         <div class="membership-card">
           <div class="membership-ribbon">Student</div>
           <h3>Stormie Student</h3>
           <p class="price">799 kr / month</p>
           <p class="desc">Discounted for students.</p>
-          <a href="#" class="btn">Start membership</a>
+          <button class="btn open-modal">Start membership</button>
         </div>
-
         <div class="membership-card">
           <div class="membership-ribbon">Youth</div>
           <h3>Stormie Youth</h3>
           <p class="price">699 kr / month</p>
           <p class="desc">For younger athletes.</p>
-          <a href="#" class="btn">Start membership</a>
+          <button class="btn open-modal">Start membership</button>
         </div>
-
         <div class="membership-card">
           <div class="membership-ribbon">10 Sessions</div>
           <h3>Stormie 10-Pack</h3>
           <p class="price">1499 kr</p>
           <p class="desc">10 classes. Flexible training.</p>
-          <a href="#" class="btn">Buy pack</a>
+          <button class="btn open-modal">Buy pack</button>
         </div>
-
       </div>
     </div>
-
     <div class="carousel-dots">
       <button class="carousel-dot active" data-index="0" type="button"></button>
       <button class="carousel-dot" data-index="1" type="button"></button>
@@ -280,24 +275,20 @@
       <button class="carousel-dot" data-index="4" type="button"></button>
       <button class="carousel-dot" data-index="5" type="button"></button>
     </div>
-
   </div>
 </section>
 
-  <!-- SHOP -->
-<section class="shop-preview">
+<!-- SHOP -->
+<section class="shop-preview" id="shop">
   <div class="shop-container">
-
     <div class="shop-header">
       <div>
         <h2>Shop</h2>
         <p class="shop-sub">Club gear</p>
       </div>
-      <a href="#" class="shop-link">View all →</a>
+      <a href="#contact" class="shop-link">View all →</a>
     </div>
-
     <div class="shop-grid">
-
       <div class="shop-card">
         <div class="shop-image">
           <img class="variant active" src="images/hoodie.png" alt="Hoodie black">
@@ -305,7 +296,6 @@
         </div>
         <h3>Hoodie</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
           <img class="variant active" src="images/tee.png" alt="T-Shirt black">
@@ -313,7 +303,6 @@
         </div>
         <h3>T-Shirt</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
           <img class="variant active" src="images/cap.png" alt="Cap black">
@@ -321,7 +310,6 @@
         </div>
         <h3>Cap</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
           <img class="variant active" src="images/beanie.png" alt="Beanie black">
@@ -329,7 +317,6 @@
         </div>
         <h3>Beanie</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
           <img class="variant active" src="images/stormiewraps.png" alt="Hand Wraps black">
@@ -337,7 +324,6 @@
         </div>
         <h3>Hand Wraps</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
           <img class="variant active" src="images/blackshorts.png" alt="Black Shorts black">
@@ -345,310 +331,289 @@
         </div>
         <h3>Black Shorts</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
-          <img class="variant active" src="images/stripedshorts.png" alt="Striped Shorts black white">
+          <img class="variant active" src="images/stripedshorts.png" alt="Striped Shorts">
           <img class="variant" src="images/stripedshorts-inverted.png" alt="Striped Shorts inverted">
         </div>
         <h3>Striped Shorts</h3>
       </div>
-
       <div class="shop-card">
         <div class="shop-image">
-          <img class="variant active" src="images/checkeredshorts.png" alt="Checkered Shorts black white">
+          <img class="variant active" src="images/checkeredshorts.png" alt="Checkered Shorts">
           <img class="variant" src="images/checkeredshorts-inverted.png" alt="Checkered Shorts inverted">
         </div>
         <h3>Checkered Shorts</h3>
       </div>
-
     </div>
-
   </div>
 </section>
-  <!-- NEWS -->
-  <section class="news-section">
-    <h2>News</h2>
 
-    <div class="news-grid">
-
-      <div class="news-card">
-        <img src="images/fight-night2.jpg" alt="">
-        <div class="news-content">
-          <span class="tag">Fight</span>
-          <h3>Fight Night – April 12</h3>
-          <p>Stormie fighter stepping into the ring. More details coming soon.</p>
-        </div>
+<!-- NEWS -->
+<section class="news-section">
+  <h2>News</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <img src="images/fight-night2.jpg" alt="">
+      <div class="news-content">
+        <span class="tag">Fight</span>
+        <h3>Fight Night – April 12</h3>
+        <p>Stormie fighter stepping into the ring. More details coming soon.</p>
       </div>
-
-      <div class="news-card">
-        <img src="images/result.jpg" alt="">
-        <div class="news-content">
-          <span class="tag">Result</span>
-          <h3>2 Wins – 1 KO</h3>
-          <p>Strong performance this weekend. More fights ahead.</p>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <img src="images/morning-classes.png" alt="">
-        <div class="news-content">
-          <span class="tag">Update</span>
-          <h3>Morning Classes Added</h3>
-          <p>New sessions Tuesdays & Thursdays 07:00–08:00.</p>
-        </div>
-      </div>
-
     </div>
-  </section>
-
-  <!-- COACHES -->
-  <section class="coaches">
-    <h2>Coaches</h2>
-
-    <div class="coaches-grid">
-
-      <div class="coach-card">
-        <img src="images/coachstorm.png" alt="Coach Storm">
-        <h3>Storm</h3>
-        <p>Head Coach · Muay Thai</p>
+    <div class="news-card">
+      <img src="images/result.jpg" alt="">
+      <div class="news-content">
+        <span class="tag">Result</span>
+        <h3>2 Wins – 1 KO</h3>
+        <p>Strong performance this weekend. More fights ahead.</p>
       </div>
-
-      <div class="coach-card">
-        <img src="images/coachmochi.png" alt="Coach Mochi">
-        <h3>Mochi</h3>
-        <p>Striking Coach</p>
-      </div>
-
-      <div class="coach-card">
-        <img src="images/coachalex.png" alt="Coach Alex">
-        <h3>Alex</h3>
-        <p>Conditioning Coach</p>
-      </div>
-
     </div>
-  </section>
+    <div class="news-card">
+      <img src="images/morning-classes.png" alt="">
+      <div class="news-content">
+        <span class="tag">Update</span>
+        <h3>Morning Classes Added</h3>
+        <p>New sessions Tuesdays & Thursdays 07:00–08:00.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- SOCIAL -->
+<!-- COACHES -->
+<section class="coaches" id="coaches">
+  <h2>Coaches</h2>
+  <div class="coaches-grid">
+    <div class="coach-card">
+      <img src="images/coachstorm.png" alt="Coach Storm">
+      <h3>Storm</h3>
+      <p>Head Coach · Muay Thai</p>
+    </div>
+    <div class="coach-card">
+      <img src="images/coachmochi.png" alt="Coach Mochi">
+      <h3>Mochi</h3>
+      <p>Striking Coach</p>
+    </div>
+    <div class="coach-card">
+      <img src="images/coachalex.png" alt="Coach Alex">
+      <h3>Alex</h3>
+      <p>Conditioning Coach</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
 <section class="social-feed">
   <div class="social-container">
-
     <div class="social-header">
       <div>
         <h2>From the gym</h2>
         <p class="social-handle">@stormiemuaythai</p>
       </div>
-      <a href="https://instagram.com/stormiemuaythai" target="_blank" rel="noopener noreferrer" class="social-link">
-        Follow on Instagram →
-      </a>
+      <a href="https://instagram.com/stormiemuaythai" target="_blank" rel="noopener noreferrer" class="social-link">Follow on Instagram →</a>
     </div>
-
     <div class="social-grid">
-
-      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card">
-        <img src="images/insta1.jpg" alt="">
-      </a>
-
-      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card">
-        <img src="images/insta2.jpg" alt="">
-      </a>
-
-      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card">
-        <img src="images/insta3.jpg" alt="">
-      </a>
-
-      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card">
-        <img src="images/insta4.jpg" alt="">
-      </a>
-
+      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card"><img src="images/insta1.jpg" alt=""></a>
+      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card"><img src="images/insta2.jpg" alt=""></a>
+      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card"><img src="images/insta3.jpg" alt=""></a>
+      <a href="https://instagram.com/stormiemuaythai" target="_blank" class="social-card"><img src="images/insta4.jpg" alt=""></a>
     </div>
-
   </div>
 </section>
 
-  <!-- CONTACT -->
-  <section class="contact-location">
-    <div class="contact-location-container">
-
-      <div class="contact-location-text">
-        <h2>Contact</h2>
-        <p class="contact-sub">Train with us in Stockholm.</p>
-
-        <div class="contact-details">
-          <div class="contact-row">
-            <span class="contact-label">Address</span>
-            <p>Helvetesgränd, Old Town, Stockholm</p>
-          </div>
-
-          <div class="contact-row">
-            <span class="contact-label">Email</span>
-            <p>hello@stormiemuaythai.com</p>
-          </div>
-
-          <div class="contact-row">
-            <span class="contact-label">Instagram</span>
-            <p>@stormiemuaythai</p>
-          </div>
+<!-- CONTACT -->
+<section class="contact-location" id="contact">
+  <div class="contact-location-container">
+    <div class="contact-location-text">
+      <h2>Contact</h2>
+      <p class="contact-sub">Train with us in Stockholm.</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-label">Address</span>
+          <p>Helvetesgränd, Old Town, Stockholm</p>
         </div>
-
-        <div class="contact-buttons">
-          <a href="#" class="btn">Book Class</a>
-          <a href="#" class="btn btn-secondary">Open Maps</a>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <p>hello@stormiemuaythai.com</p>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Instagram</span>
+          <p>@stormiemuaythai</p>
         </div>
       </div>
-
-      <div class="contact-location-map">
-        <div class="map-placeholder">
-          <span>Map / location preview</span>
-        </div>
+      <div class="contact-buttons">
+        <button class="btn open-modal">Book Class</button>
+        <a href="https://maps.google.com/?q=Helvetesgränd,+Stockholm" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open Maps</a>
       </div>
-
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-container">
-
-      <div class="footer-left">
-        <h3>Stormie Muay Thai</h3>
-        <p>Stockholm · Muay Thai Gym</p>
-      </div>
-
-      <div class="footer-right">
-
-        <div class="footer-col">
-          <span>Links</span>
-          <a href="#">Schedule</a>
-          <a href="#">Memberships</a>
-          <a href="#">Shop</a>
-        </div>
-
-        <div class="footer-col">
-          <span>Contact</span>
-          <a href="#">hello@stormiemuaythai.com</a>
-          <a href="#">Instagram</a>
-        </div>
-
-      </div>
-
+    <div class="contact-location-map">
+      <div id="map"></div>
     </div>
+  </div>
+</section>
 
-    <div class="footer-bottom">
-      <p>© Stormie Muay Thai</p>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>Stormie Muay Thai</h3>
+      <p>Stockholm · Muay Thai Gym</p>
     </div>
-  </footer>
+    <div class="footer-right">
+      <div class="footer-col">
+        <span>Links</span>
+        <a href="#schedule">Schedule</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#shop">Shop</a>
+      </div>
+      <div class="footer-col">
+        <span>Contact</span>
+        <a href="mailto:hello@stormiemuaythai.com">hello@stormiemuaythai.com</a>
+        <a href="https://instagram.com/stormiemuaythai" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© Stormie Muay Thai</p>
+  </div>
+</footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/smt-demo/app.js?v=123"></script>
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── MODAL ──────────────────────────────────────────
+const modal = document.getElementById('modal');
 
-  <script>
-    const slides = document.querySelectorAll('.start-image .slide');
-    let current = 0;
-
-    if (slides.length > 0) {
-      setInterval(() => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-      }, 3000);
-    }
-
-    const scheduleTabs = document.querySelectorAll('.schedule-tab');
-    const schedulePanels = document.querySelectorAll('.schedule-panel');
-    let scheduleIndex = 0;
-    const scheduleOrder = ['today', 'tomorrow'];
-
-    function showSchedulePanel(name) {
-      scheduleTabs.forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.schedule === name);
-      });
-
-      schedulePanels.forEach(panel => {
-        panel.classList.toggle('active', panel.dataset.panel === name);
-      });
-    }
-
-    if (scheduleTabs.length > 0 && schedulePanels.length > 0) {
-      scheduleTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = tab.dataset.schedule;
-          scheduleIndex = scheduleOrder.indexOf(target);
-          showSchedulePanel(target);
-        });
-      });
-
-      showSchedulePanel(scheduleOrder[0]);
-
-      setInterval(() => {
-        scheduleIndex = (scheduleIndex + 1) % scheduleOrder.length;
-        showSchedulePanel(scheduleOrder[scheduleIndex]);
-      }, 4500);
-    }
-    
-    const membershipCarousel = document.querySelector('.memberships-carousel');
-const membershipCards = document.querySelectorAll('.membership-card');
-const membershipDots = document.querySelectorAll('.carousel-dot');
-
-function updateCarouselDots() {
-  if (!membershipCarousel || membershipCards.length === 0 || membershipDots.length === 0) return;
-
-  const scrollLeft = membershipCarousel.scrollLeft;
-  const cardWidth = membershipCards[0].offsetWidth + 16;
-  const activeIndex = Math.round(scrollLeft / cardWidth);
-
-  membershipDots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === activeIndex);
-  });
+function openModal() {
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
-if (membershipCarousel && membershipDots.length > 0) {
-  membershipCarousel.addEventListener('scroll', updateCarouselDots);
+document.querySelectorAll('.open-modal').forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+document.getElementById('modal-close').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  membershipDots.forEach((dot, index) => {
+document.getElementById('modal-submit').addEventListener('click', function(e) {
+  e.preventDefault();
+  this.textContent = 'Sent! We\'ll be in touch soon.';
+  this.style.background = 'rgba(255,255,255,0.15)';
+  this.style.cursor = 'default';
+  setTimeout(closeModal, 2000);
+});
+
+// ── HAMBURGER ──────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── SLIDESHOW ─────────────────────────────────────
+const slides = document.querySelectorAll('.start-image .slide');
+let current = 0;
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 3000);
+}
+
+// ── SCHEDULE TABS ─────────────────────────────────
+const scheduleTabs = document.querySelectorAll('.schedule-tab');
+const schedulePanels = document.querySelectorAll('.schedule-panel');
+const scheduleOrder = ['today', 'tomorrow'];
+let scheduleIndex = 0;
+
+function showSchedulePanel(name) {
+  scheduleTabs.forEach(t => t.classList.toggle('active', t.dataset.schedule === name));
+  schedulePanels.forEach(p => p.classList.toggle('active', p.dataset.panel === name));
+}
+
+scheduleTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    scheduleIndex = scheduleOrder.indexOf(tab.dataset.schedule);
+    showSchedulePanel(tab.dataset.schedule);
+  });
+});
+
+setInterval(() => {
+  scheduleIndex = (scheduleIndex + 1) % scheduleOrder.length;
+  showSchedulePanel(scheduleOrder[scheduleIndex]);
+}, 4500);
+
+// ── MEMBERSHIP CAROUSEL ───────────────────────────
+const carousel = document.querySelector('.memberships-carousel');
+const memberCards = document.querySelectorAll('.membership-card');
+const dots = document.querySelectorAll('.carousel-dot');
+
+function updateDots() {
+  if (!carousel || !memberCards.length || !dots.length) return;
+  const cardW = memberCards[0].offsetWidth + 16;
+  const active = Math.round(carousel.scrollLeft / cardW);
+  dots.forEach((d, i) => d.classList.toggle('active', i === active));
+}
+
+if (carousel) {
+  carousel.addEventListener('scroll', updateDots);
+  dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      const cardWidth = membershipCards[0].offsetWidth + 16;
-      membershipCarousel.scrollTo({
-        left: cardWidth * index,
-        behavior: 'smooth'
-      });
+      const cardW = memberCards[0].offsetWidth + 16;
+      carousel.scrollTo({ left: cardW * i, behavior: 'smooth' });
     });
   });
-
-  updateCarouselDots();
 }
-    updateCarouselDots();
 
-
-// LÄGG IN DETTA HÄR ↓↓↓
-
-const shopCards = document.querySelectorAll('.shop-card');
-
-shopCards.forEach(card => {
+// ── SHOP VARIANTS AUTO-BLINK ──────────────────────
+document.querySelectorAll('.shop-card').forEach(card => {
   const variants = card.querySelectorAll('.variant');
-  let index = 0;
-
+  let idx = 0;
   if (variants.length < 2) return;
-
   setInterval(() => {
-    variants[index].classList.remove('active');
-    index = (index + 1) % variants.length;
-    variants[index].classList.add('active');
+    variants[idx].classList.remove('active');
+    idx = (idx + 1) % variants.length;
+    variants[idx].classList.add('active');
   }, 2500);
 });
-  const heroMenuToggle = document.querySelector('.hero-menu-toggle');
-const heroMenu = document.querySelector('.hero-menu');
 
-if (heroMenuToggle && heroMenu) {
-  heroMenuToggle.addEventListener('click', () => {
-    heroMenu.classList.toggle('active');
+// ── LEAFLET MAP ───────────────────────────────────
+const mapEl = document.getElementById('map');
+if (mapEl) {
+  const map = L.map('map', { scrollWheelZoom: false }).setView([59.3250, 18.0700], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  const icon = L.divIcon({
+    className: '',
+    html: `<div style="width:14px;height:14px;background:#fff;border-radius:50%;border:2px solid #0a0a0a;box-shadow:0 0 0 4px rgba(255,255,255,0.25);"></div>`,
+    iconSize: [14, 14],
+    iconAnchor: [7, 7]
   });
-}
-  </script>
 
+  L.marker([59.3250, 18.0700], { icon })
+    .addTo(map)
+    .bindPopup('<strong>Stormie Muay Thai</strong><br>Helvetesgränd, Old Town')
+    .openPopup();
+}
+</script>
 </body>
 </html>
-
-        
-
-        
