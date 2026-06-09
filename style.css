@@ -900,7 +900,7 @@ button { cursor: pointer; font-family: var(--sans); }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  border-bottom: 1px solid rgba(232,200,74,0.3);
+  border-bottom: 1px solid rgba(201,169,110,0.3);
   padding-bottom: 2px;
   transition: border-color 0.2s;
 }
