@@ -451,9 +451,9 @@ button { cursor: pointer; font-family: var(--sans); }
    ============================================ */
 
 .marquee {
-  background: rgba(232,200,74,0.12);
-  border-top: 1px solid rgba(232,200,74,0.2);
-  border-bottom: 1px solid rgba(232,200,74,0.2);
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   overflow: hidden;
   padding: 14px 0;
   white-space: nowrap;
