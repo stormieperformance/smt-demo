@@ -856,6 +856,7 @@ button { cursor: pointer; font-family: var(--sans); }
   background: var(--accent);
   color: #0a0a09;
   border-color: var(--accent);
+  animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
 .membership-card.featured .btn:hover {
