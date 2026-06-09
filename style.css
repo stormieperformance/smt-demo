@@ -1739,3 +1739,8 @@ behold-widget {
 
 /* ── HERO PADDING FOR FIXED NAV ──────────────────── */
 .hero { padding-top: 0; }
+/* ── BUTTON PULSE GLOW ───────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0px rgba(232,200,74,0); }
+  50%       { box-shadow: 0 0 18px rgba(232,200,74,0.45); }
+}
