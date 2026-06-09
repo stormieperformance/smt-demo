@@ -972,7 +972,7 @@ button { cursor: pointer; font-family: var(--sans); }
 
 .shop-dot.active {
   background: rgba(255,255,255,0.2);
-  border-color: rgba(232,200,74,0.6);
+  border-color: rgba(201,169,110, 0.6);
 }
   padding: 14px 16px;
   display: flex;
