@@ -1164,9 +1164,14 @@ button { cursor: pointer; font-family: var(--sans); }
 .social-link:hover { border-color: var(--accent); }
 
 .social-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+  display: block;
+  width: 100%;
+}
+
+behold-widget {
+  display: block;
+  width: 100%;
+  min-height: 500px;
 }
 
 .social-card {
