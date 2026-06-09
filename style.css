@@ -17,9 +17,9 @@
   --muted: rgba(240,236,226,0.45);
   --muted2: rgba(240,236,226,0.18);
   --line: rgba(240,236,226,0.08);
-  --accent: #e8c84a;
-  --accent-dim: rgba(232,200,74,0.12);
-  --accent-hover: #f0d666;
+  --accent: #C0392B;
+  --accent-dim: rgba(192,57,43,0.12);
+  --accent-hover: #e04030;
   --sans: 'DM Sans', sans-serif;
   --display: 'Bebas Neue', sans-serif;
   --serif: 'Cormorant Garamond', serif;
