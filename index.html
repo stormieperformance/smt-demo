@@ -243,14 +243,6 @@
         </div>
       </div>
     </div>
-    <div class="carousel-dots">
-      <button class="carousel-dot active" data-index="0" type="button"></button>
-      <button class="carousel-dot" data-index="1" type="button"></button>
-      <button class="carousel-dot" data-index="2" type="button"></button>
-      <button class="carousel-dot" data-index="3" type="button"></button>
-      <button class="carousel-dot" data-index="4" type="button"></button>
-      <button class="carousel-dot" data-index="5" type="button"></button>
-    </div>
   </div>
 </section>
 
@@ -309,7 +301,7 @@
      ============================================================ -->
 <section class="news-section" id="news">
 <style>
-  .news-section { --nc-accent: #C0392B; }
+  .news-section { --nc-accent: #C9A86A; /* guld - justera hex har om din exakta guldton skiljer sig */ }
 
   /* ---------- 3D stage ---------- */
   .nc-stage {
@@ -382,7 +374,7 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: #fff;
-    background: rgba(192,57,43,0.25);
+    background: rgba(201,168,106,0.22);
     margin-bottom: 12px;
   }
   .nc-card h3 {
@@ -848,26 +840,6 @@ setInterval(() => {
   showSchedulePanel(scheduleOrder[scheduleIndex]);
 }, 4500);
 
-// MEMBERSHIP CAROUSEL
-const carousel = document.querySelector('.memberships-carousel');
-const memberCards = document.querySelectorAll('.membership-card');
-const dots = document.querySelectorAll('.carousel-dot');
-function updateDots() {
-  if (!carousel || !memberCards.length || !dots.length) return;
-  const cardW = memberCards[0].offsetWidth + 16;
-  const active = Math.round(carousel.scrollLeft / cardW);
-  dots.forEach((d, i) => d.classList.toggle('active', i === active));
-}
-if (carousel) {
-  carousel.addEventListener('scroll', updateDots);
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      const cardW = memberCards[0].offsetWidth + 16;
-      carousel.scrollTo({ left: cardW * i, behavior: 'smooth' });
-    });
-  });
-}
-
 // SHOP AUTO-BLINK
 document.querySelectorAll('.shop-card').forEach(card => {
   const variants = card.querySelectorAll('.variant');
@@ -898,6 +870,155 @@ if (mapEl) {
   L.marker([59.3237, 18.0710], { icon }).addTo(map)
     .bindPopup('<strong>Stormie Muay Thai</strong><br>Helvetesgränd, Gamla Stan').openPopup();
 }
+</script>
+
+<!-- ============================================================
+     SITE POLISH — gold button sheen, coach lightning, about reveal
+     Self-contained: safe to remove as one block.
+     ============================================================ -->
+<style>
+  :root { --sp-gold: #C9A86A; }
+
+  /* ---- Gold buttons: sheen sweep + hover glow ---- */
+  .btn-primary, .nav-cta, .mobile-cta, .modal-submit, .schedule-tab.active {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-primary::after, .nav-cta::after, .mobile-cta::after,
+  .modal-submit::after, .schedule-tab.active::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: -80%;
+    width: 50%;
+    background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    animation: sp-sheen 4.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes sp-sheen {
+    0%, 55%  { left: -80%; }
+    100%     { left: 130%; }
+  }
+  .btn-primary, .nav-cta, .mobile-cta, .modal-submit {
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  .btn-primary:hover, .nav-cta:hover, .mobile-cta:hover, .modal-submit:hover {
+    box-shadow: 0 0 26px rgba(201,168,106,0.45);
+    transform: translateY(-1px);
+  }
+
+  /* ---- Coaches: lightning strike on scroll ---- */
+  .coach-card { position: relative; overflow: hidden; }
+  .coach-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: screen;
+    background: linear-gradient(115deg,
+      transparent 32%,
+      rgba(255,255,255,0.95) 45%,
+      rgba(201,168,106,0.7) 50%,
+      rgba(255,255,255,0.95) 55%,
+      transparent 68%);
+    background-size: 280% 280%;
+    background-position: 190% 0;
+  }
+  .coach-card.strike::before {
+    animation: sp-lightning 0.85s ease-out forwards;
+  }
+  @keyframes sp-lightning {
+    0%   { opacity: 0;   background-position: 190% 0; }
+    8%   { opacity: 1; }
+    16%  { opacity: .15; }
+    26%  { opacity: 1; }
+    100% { opacity: 0;   background-position: -90% 0; }
+  }
+
+  /* ---- About: staggered reveal + gold shimmer on heading ---- */
+  .about-content > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .about-content.in-view > * { opacity: 1; transform: none; }
+  .about-content.in-view > *:nth-child(1) { transition-delay: 0s; }
+  .about-content.in-view > *:nth-child(2) { transition-delay: .1s; }
+  .about-content.in-view > *:nth-child(3) { transition-delay: .2s; }
+  .about-content.in-view > *:nth-child(4) { transition-delay: .3s; }
+  .about-content.in-view > *:nth-child(5) { transition-delay: .4s; }
+  .about-content.in-view > *:nth-child(6) { transition-delay: .5s; }
+  .about-content.in-view > *:nth-child(7) { transition-delay: .6s; }
+  .about-content.in-view > *:nth-child(8) { transition-delay: .7s; }
+  .about-content.in-view > *:nth-child(9) { transition-delay: .8s; }
+  .about-content.in-view h2 {
+    background: linear-gradient(100deg, currentColor 38%, var(--sp-gold) 50%, currentColor 62%);
+    background-size: 220% 100%;
+    background-position: 130% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sp-about-shimmer 2.2s ease .5s forwards;
+  }
+  @keyframes sp-about-shimmer {
+    to { background-position: -130% 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary::after, .nav-cta::after, .mobile-cta::after,
+    .modal-submit::after, .schedule-tab.active::after { animation: none; }
+    .coach-card.strike::before { animation: none; }
+    .about-content > * { opacity: 1; transform: none; transition: none; }
+    .about-content.in-view h2 { animation: none; -webkit-text-fill-color: currentColor; background: none; }
+  }
+</style>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // About reveal (once)
+  var about = document.querySelector('.about-content');
+  if (about) {
+    if (reduceMotion) {
+      about.classList.add('in-view');
+    } else {
+      var aboutObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            about.classList.add('in-view');
+            aboutObs.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+      aboutObs.observe(about);
+    }
+  }
+
+  // Coach lightning (re-triggers each time you scroll past)
+  var coachCards = document.querySelectorAll('.coach-card');
+  var coachesSection = document.querySelector('.coaches');
+  if (coachesSection && coachCards.length && !reduceMotion) {
+    var coachObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          coachCards.forEach(function (card, i) {
+            setTimeout(function () {
+              card.classList.add('strike');
+              setTimeout(function () { card.classList.remove('strike'); }, 900);
+            }, 300 + i * 350);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+    coachObs.observe(coachesSection);
+  }
+})();
 </script>
 </body>
 </html>
