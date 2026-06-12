@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -763,6 +764,7 @@
   </div>
   <div class="footer-bottom">
     <p>© Stormie Muay Thai</p>
+    <p class="footer-credit">Built by <a href="https://stormieperformance.com" target="_blank" rel="noopener noreferrer">Stormie Performance</a></p>
   </div>
 </footer>
 
@@ -968,6 +970,32 @@ if (mapEl) {
     mix-blend-mode: soft-light;
   }
   .hero-content, .hero-scroll { position: relative; z-index: 2; }
+
+  /* Same golden grade on the Start Training photos */
+  .start-training .slide {
+    filter: sepia(0.48) saturate(1.15) contrast(1.06) brightness(0.96) hue-rotate(-6deg);
+  }
+
+  @media (max-width: 768px) {
+    /* Crop the hero video lower: less ceiling, more fighters */
+    .hero-video { object-position: center 78%; }
+    /* Start Training fills the screen so the two marquees never share the frame */
+    .start-training { min-height: 100vh; min-height: 100svh; }
+  }
+
+  /* ---- Footer credit ---- */
+  .footer-credit {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.32);
+  }
+  .footer-credit a {
+    color: var(--sp-gold);
+    text-decoration: none;
+    transition: color .2s ease;
+  }
+  .footer-credit a:hover { color: #fff; }
 
   /* ---- Shop: exclusive feel ---- */
   .shop-card {
