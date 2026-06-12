@@ -910,50 +910,33 @@ if (mapEl) {
     transform: translateY(-1px);
   }
 
-  /* ---- Coaches: gold bolt emblem on scroll ---- */
+  /* ---- Coaches: small gold bolt emblem, top-right corner ---- */
   .coach-card { position: relative; overflow: hidden; }
-  .coach-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0;
-    background: radial-gradient(70% 55% at 50% 38%, rgba(201,168,106,0.20), transparent 70%);
-  }
-  .coach-card.strike::before { animation: sp-bolt-glow 1.9s ease-in-out forwards; }
-  @keyframes sp-bolt-glow {
-    0%   { opacity: 0; }
-    25%  { opacity: 1; }
-    70%  { opacity: 1; }
-    100% { opacity: 0; }
-  }
   .coach-bolt {
     position: absolute;
-    top: 13%;
-    left: 50%;
-    width: 30%;
+    top: 4.5%;
+    right: 5.5%;
+    width: 12%;
     aspect-ratio: 1 / 2;
-    transform: translateX(-50%);
     z-index: 3;
     pointer-events: none;
     opacity: 0;
     overflow: visible;
-    filter: drop-shadow(0 0 8px rgba(201,168,106,0.75))
-            drop-shadow(0 0 26px rgba(201,168,106,0.45));
+    filter: drop-shadow(0 0 6px rgba(201,168,106,0.65))
+            drop-shadow(0 0 16px rgba(201,168,106,0.35));
   }
-  .coach-card.strike .coach-bolt { animation: sp-bolt-show 1.9s ease-in-out forwards; }
+  .coach-card.strike .coach-bolt { animation: sp-bolt-show 2s ease-in-out forwards; }
   @keyframes sp-bolt-show {
     0%   { opacity: 0; }
     12%  { opacity: 1; }
-    72%  { opacity: 1; }
+    74%  { opacity: 1; }
     100% { opacity: 0; }
   }
   .coach-bolt .bolt-shape {
     fill: var(--sp-gold);
     fill-opacity: 0;
     stroke: var(--sp-gold);
-    stroke-width: 2;
+    stroke-width: 3;
     stroke-linejoin: round;
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
@@ -964,18 +947,27 @@ if (mapEl) {
       sp-bolt-fill  .45s ease-in .4s forwards;
   }
   @keyframes sp-bolt-trace { to { stroke-dashoffset: 0; } }
-  @keyframes sp-bolt-fill  { to { fill-opacity: 0.92; } }
-  .coach-bolt .bolt-sheen {
-    fill: rgba(255,255,255,0.85);
-    transform: translateX(-60px) skewX(-18deg);
-  }
-  .coach-card.strike .bolt-sheen {
-    animation: sp-bolt-sheen .65s ease-in-out .8s forwards;
-  }
-  @keyframes sp-bolt-sheen {
-    to { transform: translateX(170px) skewX(-18deg); }
-  }
+  @keyframes sp-bolt-fill  { to { fill-opacity: 0.95; } }
 
+
+
+  /* ---- Hero video: warm gold grade ---- */
+  .hero-video {
+    filter: sepia(0.28) saturate(1.15) contrast(1.06) brightness(0.96) hue-rotate(-6deg);
+  }
+  .hero { position: relative; }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(110% 80% at 50% 35%, rgba(201,168,106,0.14), transparent 60%),
+      linear-gradient(180deg, rgba(201,168,106,0.06), rgba(0,0,0,0.18));
+    mix-blend-mode: soft-light;
+  }
+  .hero-content, .hero-scroll { position: relative; z-index: 2; }
 
   /* ---- Shop: exclusive feel ---- */
   .shop-card {
@@ -1051,7 +1043,6 @@ if (mapEl) {
   @media (prefers-reduced-motion: reduce) {
     .btn-primary::after, .nav-cta::after, .mobile-cta::after,
     .modal-submit::after, .schedule-tab.active::after { animation: none; }
-    .coach-card.strike::before { animation: none; }
     .coach-card.strike .coach-bolt,
     .coach-card.strike .coach-bolt path { animation: none; }
     .about-content > * { opacity: 1; transform: none; transition: none; }
@@ -1086,13 +1077,10 @@ if (mapEl) {
   var coachesSection = document.querySelector('.coaches');
   if (coachesSection && coachCards.length && !reduceMotion) {
     var BOLT_PATH = 'M62 2 L20 116 L48 116 L38 198 L84 78 L54 78 Z';
-    coachCards.forEach(function (card, i) {
-      var clipId = 'sp-bolt-clip-' + i;
+    coachCards.forEach(function (card) {
       card.insertAdjacentHTML('beforeend',
         '<svg class="coach-bolt" viewBox="0 0 100 200" aria-hidden="true">' +
-        '<defs><clipPath id="' + clipId + '"><path d="' + BOLT_PATH + '"/></clipPath></defs>' +
         '<path class="bolt-shape" pathLength="1" d="' + BOLT_PATH + '"/>' +
-        '<rect class="bolt-sheen" x="0" y="-10" width="26" height="220" clip-path="url(#' + clipId + ')"/>' +
         '</svg>');
     });
     var coachObs = new IntersectionObserver(function (entries) {
@@ -1101,7 +1089,7 @@ if (mapEl) {
           coachCards.forEach(function (card, i) {
             setTimeout(function () {
               card.classList.add('strike');
-              setTimeout(function () { card.classList.remove('strike'); }, 2000);
+              setTimeout(function () { card.classList.remove('strike'); }, 2100);
             }, 250 + i * 500);
           });
         }
