@@ -301,24 +301,377 @@
   </div>
 </section>
 
-<!-- NEWS -->
-<section class="news-section">
+<!-- ============================================================
+     NEWS — 3D carousel (Ignite-style)
+     Drop-in replacement for the old <section class="news-section">.
+     Self-contained: all CSS + JS lives in this block.
+     Accent matches your brand red (#C0392B).
+     ============================================================ -->
+<section class="news-section" id="news">
+<style>
+  .news-section { --nc-accent: #C0392B; }
+
+  /* ---------- 3D stage ---------- */
+  .nc-stage {
+    position: relative;
+    height: 500px;
+    margin: 48px auto 8px;
+    max-width: 1200px;
+    perspective: 1400px;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .nc-track {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  /* ---------- cards ---------- */
+  .nc-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 440px;
+    margin: -220px 0 0 -160px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: #0c0c0c;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 26px 24px;
+    cursor: pointer;
+    will-change: transform, opacity;
+    transition: border-color .3s ease, box-shadow .3s ease;
+    overflow: hidden;
+  }
+  .nc-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  .nc-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.85) 100%);
+    pointer-events: none;
+  }
+  .nc-card .nc-card-tag,
+  .nc-card h3 { position: relative; z-index: 2; }
+  .nc-card.is-active {
+    border-color: var(--nc-accent);
+    box-shadow: 0 0 0 1px var(--nc-accent), 0 30px 80px rgba(0,0,0,0.6);
+    cursor: grab;
+  }
+  .nc-stage.is-dragging .nc-card { cursor: grabbing; }
+
+  .nc-card .nc-card-tag {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 5px 14px;
+    border: 1px solid var(--nc-accent);
+    border-radius: 999px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(192,57,43,0.25);
+    margin-bottom: 12px;
+  }
+  .nc-card h3 {
+    font-size: 24px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #fff;
+    margin: 0;
+  }
+
+  /* ---------- arrows ---------- */
+  .nc-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 30;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(10,10,10,0.6);
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .nc-arrow:hover { border-color: var(--nc-accent); color: var(--nc-accent); }
+  .nc-arrow:focus-visible { outline: 2px solid var(--nc-accent); outline-offset: 3px; }
+  .nc-arrow--prev { left: 4%; }
+  .nc-arrow--next { right: 4%; }
+
+  /* ---------- detail panel ---------- */
+  .nc-detail {
+    max-width: 600px;
+    margin: 28px auto 0;
+    text-align: center;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .nc-detail.is-switching {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .nc-detail .nc-pill {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid var(--nc-accent);
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nc-accent);
+    margin-bottom: 18px;
+  }
+  .nc-detail h3 {
+    font-size: clamp(32px, 5.5vw, 52px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin: 0 0 14px;
+  }
+  .nc-detail .nc-text {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .nc-detail .nc-hint {
+    margin-top: 24px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 768px) {
+    .nc-stage { height: 410px; margin-top: 32px; }
+    .nc-card {
+      width: 250px;
+      height: 350px;
+      margin: -175px 0 0 -125px;
+      padding: 20px 18px;
+    }
+    .nc-card h3 { font-size: 20px; }
+    .nc-arrow { width: 44px; height: 44px; }
+    .nc-arrow--prev { left: 8px; }
+    .nc-arrow--next { right: 8px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nc-detail, .nc-card { transition: none; }
+  }
+</style>
+
   <h2>News</h2>
-  <div class="news-grid">
-    <div class="news-card">
-      <img src="images/fight-night2.jpg" alt="">
-      <div class="news-content"><span class="tag">Fight</span><h3>Fight Night – April 12</h3><p>Stormie fighter stepping into the ring. More details coming soon.</p></div>
-    </div>
-    <div class="news-card">
-      <img src="images/result.jpg" alt="">
-      <div class="news-content"><span class="tag">Result</span><h3>2 Wins – 1 KO</h3><p>Strong performance this weekend. More fights ahead.</p></div>
-    </div>
-    <div class="news-card">
-      <img src="images/morning-classes.png" alt="">
-      <div class="news-content"><span class="tag">Update</span><h3>Morning Classes Added</h3><p>New sessions Tuesdays & Thursdays 07:00–08:00.</p></div>
-    </div>
+
+  <div class="nc-stage" id="ncStage" aria-roledescription="carousel" aria-label="News">
+    <button class="nc-arrow nc-arrow--prev" id="ncPrev" type="button" aria-label="Previous news">&#8249;</button>
+    <div class="nc-track" id="ncTrack"></div>
+    <button class="nc-arrow nc-arrow--next" id="ncNext" type="button" aria-label="Next news">&#8250;</button>
   </div>
+
+  <div class="nc-detail" id="ncDetail" aria-live="polite">
+    <span class="nc-pill" id="ncPill"></span>
+    <h3 id="ncTitle"></h3>
+    <p class="nc-text" id="ncText"></p>
+    <p class="nc-hint">Drag to spin — or use the arrows</p>
+  </div>
+
+<script>
+(function () {
+  var ITEMS = [
+    {
+      tag: "Fight",
+      title: "Fight Night – April 12",
+      text: "Stormie fighter stepping into the ring. More details coming soon.",
+      img: "images/fight-night2.jpg"
+    },
+    {
+      tag: "Result",
+      title: "2 Wins – 1 KO",
+      text: "Strong performance this weekend. More fights ahead.",
+      img: "images/result.jpg"
+    },
+    {
+      tag: "Update",
+      title: "Morning Classes Added",
+      text: "New sessions Tuesdays & Thursdays 07:00–08:00.",
+      img: "images/morning-classes.png"
+    }
+  ];
+
+  var START_INDEX = 0;
+  var N = ITEMS.length;
+
+  var stage   = document.getElementById("ncStage");
+  var track   = document.getElementById("ncTrack");
+  var detail  = document.getElementById("ncDetail");
+  var pillEl  = document.getElementById("ncPill");
+  var titleEl = document.getElementById("ncTitle");
+  var textEl  = document.getElementById("ncText");
+  if (!stage || !track) return;
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var cards = ITEMS.map(function (item, i) {
+    var el = document.createElement("div");
+    el.className = "nc-card";
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", item.title);
+    el.innerHTML =
+      '<img src="' + item.img + '" alt="">' +
+      '<span class="nc-card-tag">' + item.tag + "</span>" +
+      "<h3>" + item.title + "</h3>";
+    el.addEventListener("click", function () {
+      if (dragMoved) return;
+      goTo(i);
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goTo(i); }
+    });
+    track.appendChild(el);
+    return el;
+  });
+
+  var pos = START_INDEX;
+  var target = START_INDEX;
+  var shownIndex = -1;
+  var rafId = null;
+
+  function spacing() { return window.innerWidth <= 768 ? 170 : 280; }
+  function mod(n, m) { return ((n % m) + m) % m; }
+  function nearestIndex() { return mod(Math.round(pos), N); }
+
+  function render() {
+    var sp = spacing();
+    var active = nearestIndex();
+    cards.forEach(function (card, i) {
+      var off = mod(i - pos, N);
+      if (off > N / 2) off -= N;
+      var abs = Math.abs(off);
+      var visible = abs <= 1.6;
+      card.style.opacity = visible ? String(Math.max(0, 1 - abs * 0.38)) : "0";
+      card.style.pointerEvents = visible ? "auto" : "none";
+      card.style.zIndex = String(100 - Math.round(abs * 10));
+      card.style.transform =
+        "translateX(" + (off * sp).toFixed(1) + "px) " +
+        "translateZ(" + (-abs * 170).toFixed(1) + "px) " +
+        "rotateY(" + (-off * 18).toFixed(2) + "deg)";
+      card.classList.toggle("is-active", i === active && Math.abs(pos - target) < 0.01);
+    });
+    if (active !== shownIndex && Math.abs(pos - Math.round(pos)) < 0.5) {
+      updateDetail(active);
+    }
+  }
+
+  function updateDetail(i) {
+    shownIndex = i;
+    var apply = function () {
+      var item = ITEMS[i];
+      pillEl.textContent = item.tag;
+      titleEl.textContent = item.title;
+      textEl.textContent = item.text;
+      detail.classList.remove("is-switching");
+    };
+    if (reduceMotion) { apply(); return; }
+    detail.classList.add("is-switching");
+    setTimeout(apply, 180);
+  }
+
+  function tick() {
+    var diff = target - pos;
+    if (Math.abs(diff) < 0.001) {
+      pos = target;
+      render();
+      rafId = null;
+      return;
+    }
+    pos += diff * (reduceMotion ? 1 : 0.14);
+    render();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function startTween() {
+    if (rafId === null) rafId = requestAnimationFrame(tick);
+  }
+
+  function goTo(i) {
+    var diff = mod(i - target, N);
+    if (diff > N / 2) diff -= N;
+    target += diff;
+    startTween();
+  }
+
+  function step(dir) { target += dir; startTween(); }
+
+  document.getElementById("ncPrev").addEventListener("click", function () { step(-1); });
+  document.getElementById("ncNext").addEventListener("click", function () { step(1); });
+
+  stage.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+  });
+
+  var dragging = false, dragStartX = 0, dragStartPos = 0, dragMoved = false;
+
+  stage.addEventListener("pointerdown", function (e) {
+    if (e.target.closest(".nc-arrow")) return;
+    dragging = true;
+    dragMoved = false;
+    dragStartX = e.clientX;
+    dragStartPos = pos;
+    stage.classList.add("is-dragging");
+    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+    stage.setPointerCapture(e.pointerId);
+  });
+
+  stage.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - dragStartX;
+    if (Math.abs(dx) > 6) dragMoved = true;
+    pos = dragStartPos - dx / spacing();
+    render();
+  });
+
+  function endDrag() {
+    if (!dragging) return;
+    dragging = false;
+    stage.classList.remove("is-dragging");
+    target = Math.round(pos);
+    startTween();
+    setTimeout(function () { dragMoved = false; }, 0);
+  }
+  stage.addEventListener("pointerup", endDrag);
+  stage.addEventListener("pointercancel", endDrag);
+
+  window.addEventListener("resize", render);
+
+  render();
+  updateDetail(START_INDEX);
+})();
+</script>
 </section>
+
 
 <!-- COACHES -->
 <section class="coaches" id="coaches">
